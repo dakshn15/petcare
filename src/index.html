@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="description"
+        content="Professional pet care and grooming services. Book appointments, shop pet products, and give your furry friends the care they deserve.">
+    <title>petcare | WorkDo</title>
+    <link rel="icon" href="assets/images/favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="swiper-bundle.min.css" />
+    <link rel="stylesheet" href="tailwind.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="relative sticky top-0 z-10">
+        <!-- Top Bar -->
+        <div class="hidden lg:block bg-dark py-2 text-white">
+            <div class="md:container w-full mx-auto px-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-4 text-sm">
+                        <a href="tel:+1234567890"
+                            class="flex items-center gap-2 hover:text-primary transition-all duration-300">
+                            <i class="fas fa-phone"></i>
+                            (555) 123-4567
+                        </a>
+                        <a href="mailto:info@petcarepro.com"
+                            class="flex items-center gap-2 hover:text-primary transition-all duration-300">
+                            <i class="fa-solid fa-envelope"></i>
+                            info@petcarepro.com
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="https://www.facebook.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-facebook-f text-base"></i>
+                        </a>
+                        <a href="https://x.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-x-twitter text-base"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-instagram text-base"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="bg-white shadow-lg">
+            <div class="md:container w-full mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <div class="logo-col lg:max-w-[150px] max-w-[120px] w-full">
+                        <h1>
+                            <a href="index.html">
+                                <img src="assets/images/logo.png" alt="logo" loading="lazy">
+                            </a>
+                        </h1>
+                    </div>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center gap-6">
+
+                        <a href="services.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>Services</span>
+                        </a>
+                        <a href="about.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>About</span>
+                        </a>
+                        <a href="faq.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>FAQ</span>
+                        </a>
+                        <a href="contact.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>Contact</span>
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden">
+            <div
+                class="bg-white h-full w-full max-w-sm ms-auto transform rtl:-translate-x-full transition-transform duration-300 ease-in-out">
+                <div class="p-4 h-screen overflow-y-auto">
+                    <div class="flex justify-between items-center mb-4 pb-4 border-b">
+                        <div class="logo-col max-w-[100px] w-full">
+                            <a href="index.html">
+                                <img src="assets/images/logo.png" alt="logo" loading="lazy">
+                            </a>
+                        </div>
+                        <button id="mobile-menu-close"
+                            class="text-gray-500 hover:text-primary transition-all duration-300">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <nav class="space-y-4">
+                        <a href="index.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Home</a>
+                        <a href="services.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Services</a>
+                        <a href="about.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">About</a>
+                        <a href="faq.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">FAQ</a>
+                        <a href="contact.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Contact</a>
+
+                    </nav>
+
+                    <!-- Mobile Contact Info -->
+                    <div class="mt-5 pt-6 border-t border-gray-100">
+                        <h4 class="text-sm font-semibold text-gray-600 mb-4">CONTACT INFO</h4>
+                        <div class="space-y-3">
+                            <a href="tel:+1234567890"
+                                class="flex items-center text-gray-600 hover:text-primary duration-300">
+                                <i class="fas fa-phone text-base me-3 text-primary"></i>
+                                (555) 123-4567
+                            </a>
+                            <a href="mailto:info@petcarepro.com"
+                                class="flex items-center text-gray-600 hover:text-primary duration-300">
+                                <i class="fas fa-envelope text-base me-3 text-primary"></i>
+                                info@petcarepro.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Social Links -->
+                    <div class="mt-6 flex gap-4">
+                        <a href="https://www.facebook.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden lg:py-20 py-10 bg-cover"
+        style="background-image: url(assets/images/home-bg.png);">
+        <div class="container-offset offset-left">
+            <div class="flex flex-col lg:flex-row items-center justify-between">
+                <div class="md:max-w-2xl max-w-lg lg:pe-12 mb-8 lg:mb-0 lg:text-start text-center">
+                    <span
+                        class="inline-block lg:text-lg font-semibold mb-4 border-s-2 border-primary text-primary ps-3">Best
+                        Pet
+                        Care Service Company</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-6xl xxl:text-7xl lg:mb-6 mb-4">Provide Attention
+                        and Care for all the <span class="text-primary">Pets.</span></h2>
+                    <p class="max-w-lg lg:text-xl lg:mb-8 mb-6 lg:mx-0 mx-auto">
+                        Ensure every pet receives proper attention and care for their well-being and happiness
+                    </p>
+                    <a href="contact.html" class="btn btn-secondary">Make A Reservation</a>
+                </div>
+                <div class="lg:w-1/2 w-full relative">
+                    <div class="swiper hero-swiper !p-0 !m-0">
+                        <div class="swiper-wrapper lg:!mb-10 !mb-8">
+                            <div class="swiper-slide">
+                                <div
+                                    class="overflow-hidden xl:h-[500px] lg:h-[300px] h-[250px] w-full lg:border-[12px] lg:border-e-0 border-4 border-primary lg:rounded-s-full rounded-2xl">
+                                    <img src="assets/images/hero-banner-1.png" class="h-full w-full object-cover"
+                                        alt="banner-image">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div
+                                    class="overflow-hidden xl:h-[500px] lg:h-[300px] h-[250px] w-full lg:border-[12px] lg:border-e-0 border-4 border-primary lg:rounded-s-full rounded-2xl">
+                                    <img src="assets/images/hero-banner-2.png" class="h-full w-full object-cover"
+                                        alt="banner-image">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div
+                                    class="overflow-hidden xl:h-[500px] lg:h-[300px] h-[250px] w-full lg:border-[12px] lg:border-e-0 border-4 border-primary lg:rounded-s-full rounded-2xl">
+                                    <img src="assets/images/hero-banner-3.png" class="h-full w-full object-cover"
+                                        alt="banner-image">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div
+                        class="lg:block hidden banner-label xl:h-40 xl:w-40 lg:h-32 lg:w-32 h-24 w-24 absolute z-[1] -top-6 -start-6 lg:top-0 lg:-start-8 animate-spin-slow">
+                        <img src="assets/images/banner-label.png" alt="banner-label">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="relative lg:py-20 py-10 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5"></div>
+        <div
+            class="absolute top-0 start-0 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl -translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2">
+        </div>
+        <div
+            class="absolute bottom-0 end-0 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl translate-x-1/2 rtl:translate-x-1/2 translate-y-1/2">
+        </div>
+
+        <div class="md:container w-full mx-auto px-4 relative">
+            <!-- Section Header -->
+            <div class="text-center lg:mb-10 mb-6">
+                <div class="inline-block mb-4">
+                    <span
+                        class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm leading-none">
+                        <i class="fas fa-check text-base me-2"></i>
+                        Premium Services
+                    </span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl">
+                    Pamper Your <span class="text-primary">Furry Friend</span>
+                </h2>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-5 gap-y-8">
+                <!-- Service Card 1 -->
+                <div class="pt-6">
+                    <div
+                        class="group relative flex flex-col h-full bg-white rounded-3xl xl:p-8 lg:p-6 p-4 shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="absolute -top-6 start-8">
+                            <div
+                                class="md:w-16 md:h-16 w-14 h-14 bg-white rounded-2xl shadow-lg flex items-center justify-center transform group-hover:rotate-12 transition duration-300">
+                                <i class="fas fa-bath md:text-2xl text-xl text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="flex flex-col h-full xl:pt-8 pt-10">
+                            <div class="flex-1">
+                                <h3 class="text-xl lg:text-2xl mb-4 flex items-center gap-2">
+                                    <a href="service-details.html">Full Service Bath</a>
+                                </h3>
+                                <p class="text-gray-600 mb-5">Luxurious bathing experience with premium organic
+                                    shampoos,
+                                    and gentle blow-drying.</p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-2xl font-bold text-primary">$45</div>
+                                <a href="service-booking.html"
+                                    class="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition duration-300">
+                                    Book Now
+                                    <i class="fas fa-arrow-right rtl:scale-x-[-1]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="pt-6">
+                    <div
+                        class="group relative flex flex-col h-full bg-white rounded-3xl xl:p-8 lg:p-6 p-4 shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="absolute -top-6 start-8">
+                            <div
+                                class="md:w-16 md:h-16 w-14 h-14 bg-white rounded-2xl shadow-lg flex items-center justify-center transform group-hover:rotate-12 transition duration-300">
+                                <i class="fas fa-cut md:text-2xl text-xl text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="flex flex-col h-full xl:pt-8 pt-10">
+                            <div class="flex-1">
+                                <h3 class="text-xl lg:text-2xl mb-4">
+                                    <a href="service-details.html">Professional Haircut</a>
+                                </h3>
+                                <p class="text-gray-600 mb-5">Expert styling and precision trimming to keep your pet
+                                    looking
+                                    fabulous and feeling comfortable.</p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-2xl font-bold text-primary">$35</div>
+                                <a href="service-booking.html"
+                                    class="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition duration-300">
+                                    Book Now
+                                    <i class="fas fa-arrow-right rtl:scale-x-[-1]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="pt-6">
+                    <div
+                        class="group relative flex flex-col h-full bg-white rounded-3xl xl:p-8 lg:p-6 p-4 shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-2">
+                        <div class="absolute -top-6 start-8">
+                            <div
+                                class="md:w-16 md:h-16 w-14 h-14 bg-white rounded-2xl shadow-lg flex items-center justify-center transform group-hover:rotate-12 transition duration-300">
+                                <i class="fas fa-paw md:text-2xl text-xl text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="flex flex-col h-full xl:pt-8 pt-10">
+                            <div class="flex-1">
+                                <h3 class="text-xl lg:text-2xl mb-4">
+                                    <a href="service-details.html">Nail Care</a>
+                                </h3>
+                                <p class="text-gray-600 mb-5">Gentle and precise nail trimming with paw care treatment
+                                    for
+                                    your pet's comfort and health.</p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-2xl font-bold text-primary">$20</div>
+                                <a href="service-booking.html"
+                                    class="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition duration-300">
+                                    Book Now
+                                    <i class="fas fa-arrow-right rtl:scale-x-[-1]"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Button -->
+            <div class="text-center lg:mt-8 mt-6">
+                <a href="services.html" class="btn btn-secondary group">
+                    Explore All Services
+                    <i class="fas fa-arrow-right rtl:scale-x-[-1]"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pets for Sale Section -->
+    <section class="lg:py-20 py-10">
+        <div class="md:container w-full mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center lg:mb-10 mb-6">
+                <div class="inline-block mb-4">
+                    <span
+                        class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm leading-none">
+                        <i class="fas fa-heart text-base me-2"></i>
+                        Adopt a Friend
+                    </span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl">
+                    Pets Available for <span class="text-primary">Adoption</span>
+                </h2>
+            </div>
+
+            <!-- Pets Grid -->
+            <div class="swiper pets-swiper pb-8 -mb-8">
+                <div class="swiper-wrapper">
+                    <!-- Pet Card 1 -->
+                    <div class="swiper-slide">
+                        <div
+                            class="flex flex-col h-full bg-white border rounded-2xl overflow-hidden group transition duration-300">
+                            <div class="relative overflow-hidden">
+                                <img src="assets/images/pet-1.png" alt="Golden Retriever Puppy"
+                                    class="w-full h-72 object-cover transform group-hover:scale-105 transition duration-300">
+                                <div class="absolute top-4 end-4 flex gap-2">
+                                    <span
+                                        class="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold text-xs">
+                                        Puppy
+                                    </span>
+                                    <span
+                                        class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold text-xs">
+                                        Vaccinated
+                                    </span>
+                                </div>
+                                <div
+                                    class="absolute bottom-0 start-0 end-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                                    <div class="flex items-center text-white">
+                                        <i class="fas fa-star me-2"></i>
+                                        <span class="font-semibold">4.9 (120 reviews)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-1 flex flex-col h-full lg:p-6 p-4">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h3 class="text-xl lg:text-2xl mb-2">Max</h3>
+                                            <div class="flex flex-wrap gap-2 gap-y-1 items-center text-gray-600">
+                                                <span>Golden Retriever</span>
+                                                <span>•</span>
+                                                <span>3 months old</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-xl lg:text-2xl font-bold text-primary">$800</div>
+                                    </div>
+
+                                    <div class="flex flex-wrap justify-between gap-2 mb-4">
+                                        <div class="flex items-center text-gray-600">
+                                            <i class="fa-regular fa-clock me-2 text-primary"></i>
+                                            <span>Available Now</span>
+                                        </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <i class="fa-regular fa-circle-check me-2 text-primary"></i>
+                                            <span>Health Checked</span>
+                                        </div>
+                                    </div>
+
+                                    <p class="text-gray-600 mb-6 line-clamp-3">Friendly and playful Golden Retriever
+                                        puppy, fully
+                                        vaccinated and
+                                        ready for adoption. Great with children and other pets.</p>
+                                </div>
+                                <div class="flex flex-wrap items-center justify-between gap-3">
+                                    <div class="flex items-center">
+                                        <div
+                                            class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center me-3">
+                                            <i class="fa-regular fa-clock text-base text-primary"></i>
+                                        </div>
+                                        <div class="text-sm">
+                                            <div class="font-semibold text-dark">Last Updated</div>
+                                            <div class="text-gray-600">2 days ago</div>
+                                        </div>
+                                    </div>
+                                    <a href="adoption.html" class="btn">
+                                        Adopt Now
+                                        <i class="fas fa-arrow-right rtl:scale-x-[-1]"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pet Card 2 -->
+                    <div class="swiper-slide">
+                        <div
+                            class="flex flex-col h-full bg-white border rounded-2xl overflow-hidden group transition duration-300">
+                            <div class="relative overflow-hidden">
+                                <img src="assets/images/pet-2.png" alt="Persian Cat"
+                                    class="w-full h-72 object-cover transform group-hover:scale-105 transition duration-300">
+                                <div class="absolute top-4 end-4 flex gap-2">
+                                    <span
+                                        class="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold text-xs">
+                                        Adult
+                                    </span>
+                                    <span
+                                        class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold text-xs">
+                                        Spayed
+                                    </span>
+                                </div>
+                                <div
+                                    class="absolute bottom-0 start-0 end-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                                    <div class="flex items-center text-white">
+                                        <i class="fas fa-star me-2"></i>
+                                        <span class="font-semibold">4.8 (85 reviews)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-1 flex flex-col h-full lg:p-6 p-4">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h3 class="text-xl lg:text-2xl mb-2">Luna</h3>
+                                            <div class="flex flex-wrap gap-2 gap-y-1 items-center text-gray-600">
+                                                <span>Persian Cat</span>
+                                                <span>•</span>
+                                                <span>2 years old</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-xl lg:text-2xl font-bold text-primary">$600</div>
+                                    </div>
+
+                                    <div class="flex flex-wrap justify-between gap-2 mb-4">
+                                        <div class="flex items-center text-gray-600">
+                                            <i class="fa-regular fa-clock me-2 text-primary"></i>
+                                            <span>Available Now</span>
+                                        </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <i class="fa-regular fa-circle-check me-2 text-primary"></i>
+                                            <span>Health Checked</span>
+                                        </div>
+                                    </div>
+
+                                    <p class="text-gray-600 mb-6 line-clamp-3">Beautiful Persian cat with a gentle
+                                        temperament, perfect
+                                        for a
+                                        quiet home environment. Loves cuddles and is litter trained.</p>
+                                </div>
+
+                                <div class="flex flex-wrap items-center justify-between gap-3">
+                                    <div class="flex items-center">
+                                        <div
+                                            class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center me-3">
+                                            <i class="fa-regular fa-clock text-base text-primary"></i>
+                                        </div>
+                                        <div class="text-sm">
+                                            <div class="font-semibold text-dark">Last Updated</div>
+                                            <div class="text-gray-600">1 day ago</div>
+                                        </div>
+                                    </div>
+                                    <a href="adoption.html" class="btn">
+                                        Adopt Now
+                                        <i class="fas fa-arrow-right rtl:scale-x-[-1]"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pet Card 3 -->
+                    <div class="swiper-slide">
+                        <div
+                            class="flex flex-col h-full bg-white border rounded-2xl overflow-hidden group transition duration-300">
+                            <div class="relative overflow-hidden">
+                                <img src="assets/images/pet-3.png" alt="French Bulldog"
+                                    class="w-full h-72 object-cover transform group-hover:scale-105 transition duration-300">
+                                <div class="absolute top-4 end-4 flex gap-2">
+                                    <span
+                                        class="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold text-xs">
+                                        Puppy
+                                    </span>
+                                    <span
+                                        class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold text-xs">
+                                        Vaccinated
+                                    </span>
+                                </div>
+                                <div
+                                    class="absolute bottom-0 start-0 end-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                                    <div class="flex items-center text-white">
+                                        <i class="fas fa-star me-2"></i>
+                                        <span class="font-semibold">4.9 (95 reviews)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-1 flex flex-col h-full lg:p-6 p-4">
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div>
+                                            <h3 class="text-xl lg:text-2xl mb-2">Rocky</h3>
+                                            <div class="flex flex-wrap gap-2 gap-y-1 items-center text-gray-600">
+                                                <span>French Bulldog</span>
+                                                <span>•</span>
+                                                <span>4 months old</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-xl lg:text-2xl font-bold text-primary">$1,200</div>
+                                    </div>
+
+                                    <div class="flex flex-wrap justify-between gap-2 mb-4">
+                                        <div class="flex items-center text-gray-600">
+                                            <i class="fa-regular fa-clock me-2 text-primary"></i>
+                                            <span>Available Now</span>
+                                        </div>
+                                        <div class="flex items-center text-gray-600">
+                                            <i class="fa-regular fa-circle-check me-2 text-primary"></i>
+                                            <span>Health Checked</span>
+                                        </div>
+                                    </div>
+
+                                    <p class="text-gray-600 mb-6 line-clamp-3">Adorable French Bulldog puppy with a
+                                        playful personality
+                                        and
+                                        excellent health. Great with families and other pets.</p>
+                                </div>
+
+                                <div class="flex flex-wrap items-center justify-between gap-3">
+                                    <div class="flex items-center">
+                                        <div
+                                            class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center me-3">
+                                            <i class="fa-regular fa-clock text-base text-primary"></i>
+                                        </div>
+                                        <div class="text-sm">
+                                            <div class="font-semibold text-dark">Last Updated</div>
+                                            <div class="text-gray-600">3 days ago</div>
+                                        </div>
+                                    </div>
+                                    <a href="adoption.html" class="btn">
+                                        Adopt Now
+                                        <i class="fas fa-arrow-right rtl:scale-x-[-1]"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow-wrapper">
+                    <div class="swiper-button-next pets-arrow"></div>
+                    <div class="swiper-button-prev pets-arrow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="lg:py-20 py-10 relative overflow-hidden bg-gradient-to-b from-white to-primary/5">
+        <!-- Background Elements -->
+        <div class="absolute top-0 end-0 w-64 h-64 bg-primary/10 rounded-full filter blur-3xl"></div>
+        <div class="absolute bottom-0 start-0 w-64 h-64 bg-primary/10 rounded-full filter blur-3xl"></div>
+
+        <!-- Paw Print Decorations -->
+        <div class="absolute top-20 start-10 opacity-10">
+            <svg class="w-12 h-12 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M12,8.5A1.5,1.5 0 0,1 10.5,7A1.5,1.5 0 0,1 12,5.5A1.5,1.5 0 0,1 13.5,7A1.5,1.5 0 0,1 12,8.5M12,2A5,5 0 0,0 7,7C7,9.97 9.03,12 12,12C14.97,12 17,9.97 17,7A5,5 0 0,0 12,2M21.5,18.5L14.5,13.5V14.5L7.5,12.5L3.5,16.5L2,14L7,9L15,12V11L22,16L21.5,18.5Z" />
+            </svg>
+        </div>
+        <div class="absolute top-40 end-20 opacity-10 rotate-45">
+            <svg class="w-16 h-16 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M12,8.5A1.5,1.5 0 0,1 10.5,7A1.5,1.5 0 0,1 12,5.5A1.5,1.5 0 0,1 13.5,7A1.5,1.5 0 0,1 12,8.5M12,2A5,5 0 0,0 7,7C7,9.97 9.03,12 12,12C14.97,12 17,9.97 17,7A5,5 0 0,0 12,2M21.5,18.5L14.5,13.5V14.5L7.5,12.5L3.5,16.5L2,14L7,9L15,12V11L22,16L21.5,18.5Z" />
+            </svg>
+        </div>
+
+        <div class="md:container w-full mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center lg:mb-14 sm:mb-10 mb-6">
+                <div class="inline-block mb-4">
+                    <span
+                        class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm leading-none">
+                        <i class="fas fa-check text-base me-2"></i>
+                        Premium Care Packages
+                    </span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl">
+                    Tailored Grooming <span class="text-primary"> Packages</span>
+                </h2>
+            </div>
+
+            <!-- Packages Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-6 max-w-6xl mx-auto">
+                <!-- Basic Package -->
+                <div
+                    class="package-card flex flex-col sm:h-full group bg-white rounded-2xl shadow-lg xl:p-8 lg:p-6 p-4 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden">
+                    <div class="flex-1">
+                        <!-- Corner Decoration -->
+                        <div class="absolute -top-10 -start-10 w-20 h-20 bg-primary/10 rounded-full"></div>
+
+                        <!-- Package Icon -->
+                        <div
+                            class="lg:w-20 lg:h-20 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-plus lg:text-3xl text-2xl text-primary"></i>
+                        </div>
+
+                        <h3 class="text-xl lg:text-2xl mb-2">Basic Package</h3>
+                        <div class="text-sm text-gray-500 mb-4">Perfect for routine care</div>
+                        <div class="text-3xl lg:text-4xl font-bold text-primary mb-5">$65</div>
+
+                        <ul class="text-start space-y-3 lg:mb-8 mb-5">
+                            <li class="flex items-center justify-center sm:justify-start">
+                                <i class="fas fa-check text-green-500 me-3"></i>
+                                Bath & Organic Shampoo
+                            </li>
+                            <li class="flex items-center justify-center sm:justify-start">
+                                <i class="fas fa-check text-green-500 me-3"></i>
+                                Gentle Blow Dry
+                            </li>
+                            <li class="flex items-center justify-center sm:justify-start">
+                                <i class="fas fa-check text-green-500 me-3"></i>
+                                Nail Trimming
+                            </li>
+                            <li class="flex items-center justify-center sm:justify-start">
+                                <i class="fas fa-check text-green-500 me-3"></i>
+                                Ear Cleaning
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="javascript:void(0);"
+                        class="package-btn w-full inline-flex items-center justify-center text-center px-5 py-3 bg-primary/10 border border-primary/10 text-primary rounded-full font-semibold leading-none hover:bg-primary hover:text-white transition duration-300">
+                        Choose Basic
+                    </a>
+                </div>
+
+                <!-- Premium Package -->
+                <div
+                    class="package-card flex flex-col sm:h-full group bg-white rounded-2xl shadow-xl xl:p-8 lg:p-6 p-4 !pt-8 sm:mt-0 mt-4 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border-2 border-primary relative z-[1]">
+                    <div class="flex-1">
+                        <!-- Popular Badge -->
+                        <div
+                            class="absolute -top-4 start-1/2 transform -translate-x-1/2 rtl:translate-x-1/2 bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                            Most Popular
+                        </div>
+
+                        <!-- Package Icon -->
+                        <div
+                            class="lg:w-20 lg:h-20 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-dollar-sign lg:text-3xl text-2xl text-primary"></i>
+                        </div>
+
+                        <h3 class="text-xl lg:text-2xl mb-2">Premium Package</h3>
+                        <div class="text-sm text-gray-500 mb-4">Enhanced grooming experience</div>
+                        <div class="text-3xl lg:text-4xl font-bold text-primary mb-5">$95</div>
+
+                        <ul class="text-start space-y-3 lg:mb-8 mb-5">
+                            <li class="flex items-center justify-center sm:justify-start">
+                                <i class="fas fa-check text-green-500 me-3"></i>
+                                Everything in Basic
+                            </li>
+                            <li class="flex items-center justify-center sm:justify-start">
+                                <i class="fas fa-check text-green-500 me-3"></i>
+                                Full Haircut & Styling
+                            </li>
+                            <li class="flex items-center justify-center sm:justify-start">
+                                <i class="fas fa-check text-green-500 me-3"></i>
+                                Teeth Brushing
+                            </li>
+                            <li class="flex items-center justify-center sm:justify-start">
+                                <i class="fas fa-check text-green-500 me-3"></i>
+                                Paw Pad Treatment
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="javascript:void(0);" class="package-btn w-full btn">
+                        Choose Premium
+                    </a>
+                </div>
+
+                <!-- Deluxe Package -->
+                <div
+                    class="package-card flex flex-col sm:h-full group bg-white rounded-2xl shadow-lg xl:p-8 lg:p-6 p-4 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden">
+                    <div class="flex-1">
+                        <!-- Corner Decoration -->
+                        <div class="absolute -bottom-10 -end-10 w-20 h-20 bg-primary/10 rounded-full"></div>
+
+                        <!-- Package Icon -->
+                        <div
+                            class="lg:w-20 lg:h-20 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-star lg:text-3xl text-2xl text-primary"></i>
+                        </div>
+
+                        <h3 class="text-xl lg:text-2xl mb-2">Deluxe Package</h3>
+                        <div class="text-sm text-gray-500 mb-4">Ultimate luxury experience</div>
+                        <div class="text-3xl lg:text-4xl font-bold text-primary mb-5">$135</div>
+
+                        <ul class="text-start space-y-3 lg:mb-8 mb-5">
+                            <li class="flex items-center justify-center sm:justify-start">
+                                <i class="fas fa-check text-green-500 me-3"></i>
+                                Everything in Premium
+                            </li>
+                            <li class="flex items-center justify-center sm:justify-start">
+                                <i class="fas fa-check text-green-500 me-3"></i>
+                                Aromatherapy Treatment
+                            </li>
+                            <li class="flex items-center justify-center sm:justify-start">
+                                <i class="fas fa-check text-green-500 me-3"></i>
+                                Luxury Fur Conditioning
+                            </li>
+                            <li class="flex items-center justify-center sm:justify-start">
+                                <i class="fas fa-check text-green-500 me-3"></i>
+                                Complimentary Pet Toy
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="javascript:void(0);"
+                        class="package-btn w-full inline-flex items-center justify-center text-center px-5 py-3 bg-primary/10 border border-primary/10 text-primary rounded-full font-semibold leading-none hover:bg-primary hover:text-white transition duration-300">
+                        Choose Deluxe
+                    </a>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="text-center lg:mt-8 mt-6">
+                <a href="pricing.html" class="btn btn-secondary group">
+                    explore all packages
+                    <i class="fas fa-arrow-right rtl:scale-x-[-1]"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="lg:py-20 py-10 bg-cover" style="background-image: url(assets/images/testimonial-bg.png);">
+        <div class="md:container w-full mx-auto px-4">
+            <!-- Review Form Section -->
+            <div class="grid items-center grid-cols-1 lg:grid-cols-3 lg:gap-8 gap-6">
+                <!-- Testimonials Column -->
+                <div class="lg:col-span-2">
+                    <!-- Section Header -->
+                    <div class="text-center lg:text-start lg:mb-10 mb-6">
+                        <div class="inline-block mb-4">
+                            <span
+                                class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm leading-none">
+                                <i class="fas fa-heart text-base me-2"></i>
+                                Client Reviews
+                            </span>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl">
+                            What Pet Parents <span class="text-primary">Say</span>
+                        </h2>
+                    </div>
+                    <div class="swiper testimonial-swiper">
+                        <div class="swiper-wrapper sm:pb-10 pb-6">
+                            <div class="swiper-slide">
+                                <div class="relative z-[1] md:p-12 p-10 !pb-24 text-center">
+                                    <img class="absolute inset-0 h-full w-full z-[-1]"
+                                        src="assets/images/testimonial-card-bg.png">
+                                    <div class="flex items-center justify-center mb-4">
+                                        <div class="flex text-yellow-400">
+                                            <i class="fas fa-star text-xl"></i>
+                                            <i class="fas fa-star text-xl"></i>
+                                            <i class="fas fa-star text-xl"></i>
+                                            <i class="fas fa-star text-xl"></i>
+                                            <i class="fas fa-star text-xl"></i>
+                                        </div>
+                                    </div>
+                                    <p class="lg:text-lg text-gray-600 mb-5 line-clamp-4">"Excellent service! My Golden
+                                        Retriever Max
+                                        looks amazing after every
+                                        visit. The staff is so caring and professional. They always remember his
+                                        preferences and
+                                        make
+                                        him feel comfortable."</p>
+                                    <div>
+                                        <h3 class="text-xl mb-1">Sarah Johnson</h3>
+                                        <div class="text-gray-500">Dog Parent</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="relative z-[1] md:p-12 p-10 !pb-24 text-center">
+                                    <img class="absolute inset-0 h-full w-full z-[-1]"
+                                        src="assets/images/testimonial-card-bg.png">
+                                    <div class="flex items-center justify-center mb-4">
+                                        <div class="flex text-yellow-400">
+                                            <i class="fas fa-star text-xl"></i>
+                                            <i class="fas fa-star text-xl"></i>
+                                            <i class="fas fa-star text-xl"></i>
+                                            <i class="fas fa-star text-xl"></i>
+                                            <i class="fas fa-star text-xl"></i>
+                                        </div>
+                                    </div>
+                                    <p class="lg:text-lg text-gray-600 mb-5 line-clamp-4">"I was nervous about getting
+                                        my
+                                        Persian cat
+                                        Luna
+                                        groomed, but the team here made it a wonderful experience. They're incredibly
+                                        patient
+                                        and
+                                        gentle
+                                        with her. The luxury spa treatment was amazing"</p>
+                                    <div>
+                                        <h3 class="text-xl mb-1">Michael Chen</h3>
+                                        <div class="text-gray-500">Cat Parent</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <!-- Review Form Column -->
+                <div class="lg:col-span-1">
+                    <div class="text-center lg:text-start lg:mb-6 mb-4">
+                        <h3 class="text-xl lg:text-2xl mb-2">
+                            Share Your <span class="text-primary">Experience</span>
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            Help other pet parents
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-xl p-4 lg:p-6 relative overflow-hidden">
+                        <div class="absolute -top-10 -start-10 w-20 h-20 bg-primary/5 rounded-full"></div>
+                        <div class="absolute -bottom-10 -end-10 w-20 h-20 bg-primary/5 rounded-full"></div>
+
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block font-medium mb-2 text-sm">Your Name *</label>
+                                <input type="text" placeholder="Enter your name" class="form-input !text-sm" required>
+                            </div>
+                            <div>
+                                <label class="block font-medium mb-2 text-sm">Email *</label>
+                                <input type="email" placeholder="your@email.com" class="form-input !text-sm" required>
+                            </div>
+                            <div>
+                                <label class="block font-medium mb-2 text-sm">Rating *</label>
+                                <div class="flex">
+                                    <button type="button"
+                                        class="text-xl star-rating text-gray-300 hover:text-yellow-400 transition-colors"
+                                        data-rating="1">★</button>
+                                    <button type="button"
+                                        class="text-xl star-rating text-gray-300 hover:text-yellow-400 transition-colors"
+                                        data-rating="2">★</button>
+                                    <button type="button"
+                                        class="text-xl star-rating text-gray-300 hover:text-yellow-400 transition-colors"
+                                        data-rating="3">★</button>
+                                    <button type="button"
+                                        class="text-xl star-rating text-gray-300 hover:text-yellow-400 transition-colors"
+                                        data-rating="4">★</button>
+                                    <button type="button"
+                                        class="text-xl star-rating text-gray-300 hover:text-yellow-400 transition-colors"
+                                        data-rating="5">★</button>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block font-medium mb-2 text-sm">Your Review *</label>
+                                <textarea rows="3" class="form-input !text-sm"
+                                    placeholder="Tell us about your experience..." required></textarea>
+                            </div>
+                            <button type="submit" class="w-full btn !text-sm !py-2">
+                                Submit Review
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Banner -->
+    <section class="lg:py-20 py-10 bg-primary relative z-[1] overflow-hidden">
+        <img class="rtl:scale-x-[-1] absolute z-[-1] start-0 bottom-0 max-w-[14vw] sm:max-w-[10vw] w-full"
+            src="assets/images/cat.png" alt="cat-image">
+        <img class="rtl:scale-x-[-1] absolute z-[-1] sm:end-10 end-0 bottom-0 max-w-[14vw] sm:max-w-[10vw] w-full"
+            src="assets/images/dog.png" alt="dog-image">
+        <div class="md:container w-full mx-auto px-4">
+            <div class="text-center text-white">
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 drop-shadow-lg">
+                    Give Your Friend the Care They Deserve Connect With Team Today!
+                </h2>
+                <p class="max-w-3xl mx-auto lg:text-lg xl:text-xl lg:mb-8 mb-5">
+                    From playful pups to curious kittens, we're here to make every tail wag and every purr louder. Reach
+                    out and let's make your pet's day extra special!
+                </p>
+                <a href="contact.html" class="btn hover:!border-white focus:!border-white btn-secondary">Contact Our
+                    Team</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white lg:pt-20 pt-10 pb-5">
+        <div class="md:container w-full mx-auto px-4">
+            <div class="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-8 gap-6 items-center">
+                <!-- Contacts -->
+                <div>
+                    <h3 class="text-xl lg:mb-6 mb-5 text-primary">Contacts</h3>
+                    <div class="lg:space-y-4 space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-primary me-3"></i>
+                            <a href="tel:+880 170 1111 000"
+                                class="flex-1 hover:text-primary transition duration-300">+880 170 1111 000</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-primary me-3"></i>
+                            <a href="mailto:info@support.com"
+                                class="flex-1 hover:text-primary transition duration-300">info@support.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary me-3"></i>
+                            <p class="flex-1 max-w-[200px]">168/170, Avenue 01, Mirpur DOHS, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center CTA -->
+                <div
+                    class="xl:col-span-2 lg:col-span-1 sm:col-span-2 lg:order-none -order-1 text-center flex flex-col items-center justify-center h-full">
+                    <h2 class="max-w-xl text-2xl sm:text-3xl lg:text-4xl xl:text-5xl lg:mb-8 mb-5 leading-tight">
+                        Want To <span class="text-primary">Keep Your</span> Pet In, Our Center?
+                    </h2>
+                    <a href="contact.html" class="btn hover:border-white focus:border-white min-w-[150px]">Book Now</a>
+                </div>
+
+                <!-- Opening Hours & Social -->
+                <div class="sm:w-fit sm:ms-auto">
+                    <h3 class="text-xl lg:mb-6 mb-5 text-primary">Opening Hours</h3>
+                    <ul class="lg:space-y-3 space-y-2 lg:mb-6 mb-5">
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Mon - Fri:</span>
+                            <span>9.00AM - 6.00PM</span>
+                        </li>
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Saturday:</span>
+                            <span>9.00AM - 6.00PM</span>
+                        </li>
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Sunday:</span>
+                            <span>Closed</span>
+                        </li>
+                    </ul>
+                    <div class="flex gap-5 justify-start text-white">
+                        <a href="https://www.facebook.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-facebook-f lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://x.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-x-twitter lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-instagram lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-youtube lg:text-xl text-base"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-gray-600 text-gray-300 lg:mt-10 mt-5 pt-5 flex items-center justify-center text-center">
+                <p>
+                    © 2025 Petcare Is Proudly Powered By <a href="https://workdo.io/"
+                        class="text-primary hover:underline">WorkDo.</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

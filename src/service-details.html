@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="description"
+    content="Professional pet care and grooming services. Book appointments, shop pet products, and give your furry friends the care they deserve.">
+    <title>petcare | WorkDo</title>
+    <link rel="icon" href="assets/images/favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="tailwind.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="relative sticky top-0 z-10">
+        <!-- Top Bar -->
+        <div class="hidden lg:block bg-dark py-2 text-white">
+            <div class="md:container w-full mx-auto px-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-4 text-sm">
+                        <a href="tel:+1234567890"
+                            class="flex items-center gap-2 hover:text-primary transition-all duration-300">
+                            <i class="fas fa-phone"></i>
+                            (555) 123-4567
+                        </a>
+                        <a href="mailto:info@petcarepro.com"
+                            class="flex items-center gap-2 hover:text-primary transition-all duration-300">
+                            <i class="fa-solid fa-envelope"></i>
+                            info@petcarepro.com
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="https://www.facebook.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-facebook-f text-base"></i>
+                        </a>
+                        <a href="https://x.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-x-twitter text-base"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-instagram text-base"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="bg-white shadow-lg">
+            <div class="md:container w-full mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <div class="logo-col lg:max-w-[150px] max-w-[120px] w-full">
+                        <h1>
+                            <a href="index.html">
+                                <img src="assets/images/logo.png" alt="logo" loading="lazy">
+                            </a>
+                        </h1>
+                    </div>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center gap-6">
+                        
+                        <a href="services.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>Services</span>
+                        </a>
+                        <a href="about.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>About</span>
+                        </a>
+                        <a href="faq.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>FAQ</span>
+                        </a>
+                        <a href="contact.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>Contact</span>
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden">
+            <div
+                class="bg-white h-full w-full max-w-sm ms-auto transform rtl:-translate-x-full transition-transform duration-300 ease-in-out">
+                <div class="p-4 h-screen overflow-y-auto">
+                    <div class="flex justify-between items-center mb-4 pb-4 border-b">
+                        <div class="logo-col max-w-[100px] w-full">
+                            <a href="index.html">
+                                <img src="assets/images/logo.png" alt="logo" loading="lazy">
+                            </a>
+                        </div>
+                        <button id="mobile-menu-close"
+                            class="text-gray-500 hover:text-primary transition-all duration-300">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <nav class="space-y-4">
+                        <a href="index.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Home</a>
+                        <a href="services.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Services</a>
+                        <a href="about.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">About</a>
+                        <a href="faq.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">FAQ</a>
+                        <a href="contact.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Contact</a>
+                        
+                    </nav>
+
+                    <!-- Mobile Contact Info -->
+                    <div class="mt-5 pt-6 border-t border-gray-100">
+                        <h4 class="text-sm font-semibold text-gray-600 mb-4">CONTACT INFO</h4>
+                        <div class="space-y-3">
+                            <a href="tel:+1234567890"
+                                class="flex items-center text-gray-600 hover:text-primary duration-300">
+                                <i class="fas fa-phone text-base me-3 text-primary"></i>
+                                (555) 123-4567
+                            </a>
+                            <a href="mailto:info@petcarepro.com"
+                                class="flex items-center text-gray-600 hover:text-primary duration-300">
+                                <i class="fas fa-envelope text-base me-3 text-primary"></i>
+                                info@petcarepro.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Social Links -->
+                    <div class="mt-6 flex gap-4">
+                        <a href="https://www.facebook.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- common banner -->
+    <section class="banner-section relative lg:pt-20 pt-10 lg:pb-24 pb-12 bg-cover sm:bg-[right] bg-[80%] rtl:scale-x-[-1]"
+        style="background-image: url('assets/images/common-banner.png');">
+        <div class="md:container w-full mx-auto px-4 rtl:scale-x-[-1]">
+            <div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl mb-4 capitalize">Service details</h2>
+                <ul class="flex flex-wrap items-center capitalize">
+                    <li class="flex items-center capitalize">
+                        <a href="index.html">Home</a>
+                        <i class="fas fa-chevron-right mx-2 text-xs rtl:scale-x-[-1]"></i>
+                    </li>
+                    <li class="font-bold capitalize">Service details</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Detail -->
+    <section class="lg:py-20 py-10">
+        <div class="md:container w-full mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
+                <div class="animate-fadeIn">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm leading-none mb-4">Premium Service</div>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl mb-4">Full Service Bath</h2>
+                    <p class="lg:mb-8 mb-5">
+                        Give your pet the ultimate spa experience with our comprehensive bathing service. We use only the finest, pet-safe products and techniques to ensure your furry friend leaves feeling clean, fresh, and pampered.
+                    </p>
+                    <div class="flex flex-wrap gap-5 lg:mb-8 mb-5">
+                        <div class="flex items-center bg-white p-4 rounded-xl shadow w-full sm:w-auto">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center me-4">
+                                <i class="fas fa-clock text-xl text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-quicksand font-bold text-primary mb-1">45-60</div>
+                                <div class="text-sm text-secondary">Minutes</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center bg-white p-4 rounded-xl shadow w-full sm:w-auto">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center me-4">
+                                <i class="fas fa-dollar-sign text-xl text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-quicksand font-bold text-primary mb-1">$35+</div>
+                                <div class="text-sm text-secondary">Starting Price</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center bg-white p-4 rounded-xl shadow w-full sm:w-auto">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center me-4">
+                                <i class="fas fa-star text-xl text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="text-base font-quicksand font-bold text-primary mb-2 flex items-center gap-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i> 
+                                    <i class="fas fa-star"></i> 
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="text-sm text-secondary">Customer Rating</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="service-booking.html" class="btn">
+                        <i class="fas fa-calendar-alt"></i>
+                        Book This Service
+                    </a>
+                </div>
+                <div class="rounded-xl overflow-hidden relative pt-[75%] w-full shadow-xl">
+                    <img src="assets/images/service-image.jpg" alt="Pet bathing service" class="w-full h-full object-cover absolute inset-0 transform hover:scale-[1.02] transition-transform duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="lg:py-20 py-10 bg-gradient-to-b from-white to-primary/5 relative z-[1] overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute z-[-1] top-0 start-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute z-[-1] top-10 start-10 w-40 h-40 bg-primary/5 rounded-full hidden sm:block"></div>
+            <div class="absolute z-[-1] bottom-10 end-10 w-60 h-60 bg-primary/5 rounded-full"></div>
+            <div class="absolute z-[-1] top-1/4 end-1/4 w-20 h-20 bg-primary/5 rounded-full"></div>
+            
+            <!-- Water droplets -->
+            <div class="water-droplet" style="top: 15%; left: 10%; animation-delay: 0.5s;"></div>
+            <div class="water-droplet" style="top: 25%; right: 15%; animation-delay: 1.2s;"></div>
+            <div class="water-droplet" style="bottom: 20%; left: 20%; animation-delay: 2.1s;"></div>
+            <div class="water-droplet" style="bottom: 30%; right: 25%; animation-delay: 0.8s;"></div>
+        </div>
+        
+        <div class="md:container w-full mx-auto px-4">
+            <div class="text-center lg:mb-10 mb-6">
+                <div class="inline-block mb-4">
+                    <span class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm leading-none">
+                        Comprehensive Care
+                    </span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl">
+                    What's <span class="text-primary">Included</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-5">
+                <div class="bg-white rounded-xl lg:p-6 p-4 shadow-lg hover:shadow-xl transition-all duration-300 border transform hover:-translate-y-2 group">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-flask text-2xl text-primary"></i>
+                    </div>
+                    <div class="relative pe-8">
+                        <h3 class="text-xl mb-2">Premium Shampoo</h3>
+                        <span class="absolute -top-1 -end-1 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">✓</span>
+                    </div>
+                    <p>High-quality, pet-safe shampoo selected based on your pet's coat type and skin sensitivity.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl lg:p-6 p-4 shadow-lg hover:shadow-xl transition-all duration-300 border transform hover:-translate-y-2 group">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-cut text-2xl text-primary"></i>
+                    </div>
+                    <div class="relative pe-8">
+                        <h3 class="text-xl mb-2">Conditioning Treatment</h3>
+                        <span class="absolute -top-1 -end-1 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">✓</span>
+                    </div>
+                    <p>Moisturizing conditioner to keep your pet's coat soft, shiny, and tangle-free.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl lg:p-6 p-4 shadow-lg hover:shadow-xl transition-all duration-300 border transform hover:-translate-y-2 group">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-cut text-2xl text-primary"></i>
+                    </div>
+                    <div class="relative pe-8">
+                        <h3 class="text-xl mb-2">Nail Trimming</h3>
+                        <span class="absolute -top-1 -end-1 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">✓</span>
+                    </div>
+                    <p>Professional nail trimming and filing to keep your pet's nails at the perfect length.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl lg:p-6 p-4 shadow-lg hover:shadow-xl transition-all duration-300 border transform hover:-translate-y-2 group">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-ear-listen text-2xl text-primary"></i>
+                    </div>
+                    <div class="relative pe-8">
+                        <h3 class="text-xl mb-2">Ear Cleaning</h3>
+                        <span class="absolute -top-1 -end-1 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">✓</span>
+                    </div>
+                    <p>Gentle ear cleaning and inspection to prevent infections and maintain ear health.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl lg:p-6 p-4 shadow-lg hover:shadow-xl transition-all duration-300 border transform hover:-translate-y-2 group">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-brush text-2xl text-primary"></i>
+                    </div>
+                    <div class="relative pe-8">
+                        <h3 class="text-xl mb-2">Thorough Brushing</h3>
+                        <span class="absolute -top-1 -end-1 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">✓</span>
+                    </div>
+                    <p>Complete brushing to remove loose fur, prevent matting, and distribute natural oils.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl lg:p-6 p-4 shadow-lg hover:shadow-xl transition-all duration-300 border transform hover:-translate-y-2 group">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-sun text-2xl text-primary"></i>
+                    </div>
+                    <div class="relative pe-8">
+                        <h3 class="text-xl mb-2">Professional Drying</h3>
+                        <span class="absolute -top-1 -end-1 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">✓</span>
+                    </div>
+                    <p>Complete drying with professional equipment to ensure your pet is comfortable and warm.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="lg:py-20 py-10">
+        <div class="md:container w-full mx-auto px-4">
+            <div class="text-center lg:mb-10 mb-6">
+                <div class="inline-block mb-4">
+                    <span class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm leading-none">
+                        Step by Step
+                    </span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl">
+                    Our Bathing <span class="text-primary">Process</span>
+                </h2>
+            </div>
+            
+            <div class="relative">
+                <!-- Desktop Process Line -->
+                <div class="hidden lg:block absolute top-24 start-0 w-full h-1">
+                    <div class="absolute start-[12.5%] top-1/2 -translate-y-1/2 w-[75%] h-1 bg-primary"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 gap-5">
+                    <div class="bg-white lg:p-6 p-4 rounded-xl shadow-lg border text-center relative group hover:shadow-xl transition-all duration-300">
+                        <div class="lg:w-20 lg:h-20 w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-5 text-2xl font-quicksand font-bold group-hover:scale-110 transition-transform duration-300">1</div>
+                        <h3 class="text-xl mb-3">Health Check</h3>
+                        <p>We start with a gentle health and temperament assessment to ensure your pet is comfortable.</p>
+                    </div>
+                    <div class="bg-white lg:p-6 p-4 rounded-xl shadow-lg border text-center relative group hover:shadow-xl transition-all duration-300">
+                        <div class="lg:w-20 lg:h-20 w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-5 text-2xl font-quicksand font-bold group-hover:scale-110 transition-transform duration-300">2</div>
+                        <h3 class="text-xl mb-3">Pre-Bath Prep</h3>
+                        <p>Nail trimming, ear cleaning, and thorough brushing to prepare for the bath.</p>
+                    </div>
+                    <div class="bg-white lg:p-6 p-4 rounded-xl shadow-lg border text-center relative group hover:shadow-xl transition-all duration-300">
+                        <div class="lg:w-20 lg:h-20 w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-5 text-2xl font-quicksand font-bold group-hover:scale-110 transition-transform duration-300">3</div>
+                        <h3 class="text-xl mb-3">Luxurious Bath</h3>
+                        <p>Warm water bath with premium shampoo and conditioning treatment.</p>
+                    </div>
+                    <div class="bg-white lg:p-6 p-4 rounded-xl shadow-lg border text-center relative group hover:shadow-xl transition-all duration-300">
+                        <div class="lg:w-20 lg:h-20 w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-5 text-2xl font-quicksand font-bold group-hover:scale-110 transition-transform duration-300">4</div>
+                        <h3 class="text-xl mb-3">Professional Drying</h3>
+                        <p>Complete drying and final brushing to leave your pet looking and feeling their best.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add-Ons -->
+    <section class="lg:py-20 py-10 bg-gradient-to-b from-white to-gray-100">
+        <div class="md:container w-full mx-auto px-4">
+            <div class="text-center lg:mb-10 mb-6">
+                <div class="inline-block mb-4">
+                    <span class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm leading-none">
+                        Premium Options
+                    </span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl">
+                    Optional <span class="text-primary">Add-Ons</span>
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-5">
+                <div class="bg-white rounded-xl xl:p-8 lg:p-6 p-4 shadow-lg border hover:shadow-xl transition-all duration-300 relative z-[1] overflow-hidden group">
+                    <div class="absolute z-[-1] top-0 end-0 w-24 h-24 bg-primary/5 rounded-full -me-12 -mt-12 group-hover:bg-primary/10 transition-colors duration-300"></div>
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center me-4">
+                                <i class="fas fa-spa text-xl text-primary"></i>
+                            </div>
+                            <h3 class="flex-1 text-xl">Aromatherapy Treatment</h3>
+                        </div>
+                        <p class="line-clamp-3 mb-6">Relaxing lavender-scented bath for anxious or stressed pets. Helps calm and soothe your pet during the grooming process.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-primary font-bold text-xl">+$10</div>
+                            <button class="btn">Add to Service</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl xl:p-8 lg:p-6 p-4 shadow-lg border hover:shadow-xl transition-all duration-300 relative z-[1] overflow-hidden group">
+                    <div class="absolute z-[-1] top-0 end-0 w-24 h-24 bg-primary/5 rounded-full -me-12 -mt-12 group-hover:bg-primary/10 transition-colors duration-300"></div>
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center me-4">
+                                <i class="fas fa-heart text-xl text-primary"></i>
+                            </div>
+                            <h3 class="flex-1 text-xl">De-Shedding Treatment</h3>
+                        </div>
+                        <p class="line-clamp-3 mb-6">Special treatment to reduce shedding for heavy-shedding breeds. Removes loose undercoat and reduces shedding by up to 90%.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-primary font-bold text-xl">+$15</div>
+                            <button class="btn">Add to Service</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl xl:p-8 lg:p-6 p-4 shadow-lg border hover:shadow-xl transition-all duration-300 relative z-[1] overflow-hidden group">
+                    <div class="absolute z-[-1] top-0 end-0 w-24 h-24 bg-primary/5 rounded-full -me-12 -mt-12 group-hover:bg-primary/10 transition-colors duration-300"></div>
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center me-4">
+                                <i class="fas fa-tooth text-xl text-primary"></i>
+                            </div>
+                            <h3 class="flex-1 text-xl">Teeth Cleaning</h3>
+                        </div>
+                        <p class="line-clamp-3 mb-6">Professional teeth cleaning to maintain oral health. Helps prevent dental disease and freshens your pet's breath.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-primary font-bold text-xl">+$20</div>
+                            <button class="btn">Add to Service</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white lg:pt-20 pt-10 pb-5">
+        <div class="md:container w-full mx-auto px-4">
+            <div class="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-8 gap-6 items-center">
+                <!-- Contacts -->
+                <div>
+                    <h3 class="text-xl lg:mb-6 mb-5 text-primary">Contacts</h3>
+                    <div class="lg:space-y-4 space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-primary me-3"></i>
+                            <a href="tel:+880 170 1111 000"
+                                class="flex-1 hover:text-primary transition duration-300">+880 170 1111 000</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-primary me-3"></i>
+                            <a href="mailto:info@support.com"
+                                class="flex-1 hover:text-primary transition duration-300">info@support.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary me-3"></i>
+                            <p class="flex-1 max-w-[200px]">168/170, Avenue 01, Mirpur DOHS, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center CTA -->
+                <div
+                    class="xl:col-span-2 lg:col-span-1 sm:col-span-2 lg:order-none -order-1 text-center flex flex-col items-center justify-center h-full">
+                    <h2 class="max-w-xl text-2xl sm:text-3xl lg:text-4xl xl:text-5xl lg:mb-8 mb-5 leading-tight">
+                        Want To <span class="text-primary">Keep Your</span> Pet In, Our Center?
+                    </h2>
+                    <a href="contact.html" class="btn hover:border-white focus:border-white min-w-[150px]">Book Now</a>
+                </div>
+
+                <!-- Opening Hours & Social -->
+                <div class="sm:w-fit sm:ms-auto">
+                    <h3 class="text-xl lg:mb-6 mb-5 text-primary">Opening Hours</h3>
+                    <ul class="lg:space-y-3 space-y-2 lg:mb-6 mb-5">
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Mon - Fri:</span>
+                            <span>9.00AM - 6.00PM</span>
+                        </li>
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Saturday:</span>
+                            <span>9.00AM - 6.00PM</span>
+                        </li>
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Sunday:</span>
+                            <span>Closed</span>
+                        </li>
+                    </ul>
+                    <div class="flex gap-5 justify-start text-white">
+                        <a href="https://www.facebook.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-facebook-f lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://x.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-x-twitter lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-instagram lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-youtube lg:text-xl text-base"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-gray-600 text-gray-300 lg:mt-10 mt-5 pt-5 flex items-center justify-center text-center">
+                <p>
+                    © 2025 Petcare Is Proudly Powered By <a href="https://workdo.io/"
+                        class="text-primary hover:underline">WorkDo.</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="description"
+        content="Professional pet care and grooming services. Book appointments, shop pet products, and give your furry friends the care they deserve.">
+    <title>petcare | WorkDo</title>
+    <link rel="icon" href="assets/images/favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="tailwind.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="relative sticky top-0 z-10">
+        <!-- Top Bar -->
+        <div class="hidden lg:block bg-dark py-2 text-white">
+            <div class="md:container w-full mx-auto px-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-4 text-sm">
+                        <a href="tel:+1234567890"
+                            class="flex items-center gap-2 hover:text-primary transition-all duration-300">
+                            <i class="fas fa-phone"></i>
+                            (555) 123-4567
+                        </a>
+                        <a href="mailto:info@petcarepro.com"
+                            class="flex items-center gap-2 hover:text-primary transition-all duration-300">
+                            <i class="fa-solid fa-envelope"></i>
+                            info@petcarepro.com
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="https://www.facebook.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-facebook-f text-base"></i>
+                        </a>
+                        <a href="https://x.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-x-twitter text-base"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-instagram text-base"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="bg-white shadow-lg">
+            <div class="md:container w-full mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <div class="logo-col lg:max-w-[150px] max-w-[120px] w-full">
+                        <h1>
+                            <a href="index.html">
+                                <img src="assets/images/logo.png" alt="logo" loading="lazy">
+                            </a>
+                        </h1>
+                    </div>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center gap-6">
+                        
+                        <a href="services.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>Services</span>
+                        </a>
+                        <a href="about.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>About</span>
+                        </a>
+                        <a href="faq.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>FAQ</span>
+                        </a>
+                        <a href="contact.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>Contact</span>
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden">
+            <div
+                class="bg-white h-full w-full max-w-sm ms-auto transform rtl:-translate-x-full transition-transform duration-300 ease-in-out">
+                <div class="p-4 h-screen overflow-y-auto">
+                    <div class="flex justify-between items-center mb-4 pb-4 border-b">
+                        <div class="logo-col max-w-[100px] w-full">
+                            <a href="index.html">
+                                <img src="assets/images/logo.png" alt="logo" loading="lazy">
+                            </a>
+                        </div>
+                        <button id="mobile-menu-close"
+                            class="text-gray-500 hover:text-primary transition-all duration-300">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <nav class="space-y-4">
+                        <a href="index.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Home</a>
+                        <a href="services.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Services</a>
+                        <a href="about.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">About</a>
+                        <a href="faq.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">FAQ</a>
+                        <a href="contact.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Contact</a>
+                        
+                    </nav>
+
+                    <!-- Mobile Contact Info -->
+                    <div class="mt-5 pt-6 border-t border-gray-100">
+                        <h4 class="text-sm font-semibold text-gray-600 mb-4">CONTACT INFO</h4>
+                        <div class="space-y-3">
+                            <a href="tel:+1234567890"
+                                class="flex items-center text-gray-600 hover:text-primary duration-300">
+                                <i class="fas fa-phone text-base me-3 text-primary"></i>
+                                (555) 123-4567
+                            </a>
+                            <a href="mailto:info@petcarepro.com"
+                                class="flex items-center text-gray-600 hover:text-primary duration-300">
+                                <i class="fas fa-envelope text-base me-3 text-primary"></i>
+                                info@petcarepro.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Social Links -->
+                    <div class="mt-6 flex gap-4">
+                        <a href="https://www.facebook.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- common banner -->
+    <section class="banner-section relative lg:pt-20 pt-10 lg:pb-24 pb-12 bg-cover sm:bg-[right] bg-[80%] rtl:scale-x-[-1]"
+        style="background-image: url('assets/images/common-banner.png');">
+        <div class="md:container w-full mx-auto px-4 rtl:scale-x-[-1]">
+            <div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl mb-4 capitalize">Frequently Asked Questions</h2>
+                <ul class="flex flex-wrap items-center capitalize">
+                    <li class="flex items-center capitalize">
+                        <a href="index.html">Home</a>
+                        <i class="fas fa-chevron-right mx-2 text-xs rtl:scale-x-[-1]"></i>
+                    </li>
+                    <li class="font-bold capitalize">faqs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="lg:py-20 py-10">
+        <div class="md:container w-full mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Grooming Services FAQ -->
+                <div class="lg:mb-12 mb-8">
+                    <div class="flex items-center lg:mb-8 mb-6">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-primary to-primary/70 rounded-xl flex items-center justify-center me-4 text-white shadow-md">
+                            <i class="fas fa-cut text-base"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-dark">Grooming Services</h2>
+                    </div>
+                    <div class="space-y-5">
+                        <div
+                            class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border overflow-hidden group">
+                            <div class="faq-toggle lg:p-5 p-4 cursor-pointer flex justify-between items-center gap-3">
+                                <h3
+                                    class="flex-1 md:text-lg text-base font-medium text-dark group-hover:text-primary transition-colors duration-300">
+                                    How long does a full grooming session take?</h3>
+                                <div
+                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                    <i class="fas fa-plus faq-icon text-primary transition-transform"></i>
+                                </div>
+                            </div>
+                            <div class="faq-content lg:p-5 p-4 border-t">
+                                <p>A full grooming session typically takes 2-3 hours
+                                    depending on your
+                                    pet's size, coat condition, and the services requested. We take our time to ensure
+                                    your
+                                    pet is comfortable and receives the best possible care. For anxious pets, we may
+                                    need
+                                    additional time to help them relax.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border overflow-hidden group">
+                            <div class="faq-toggle lg:p-5 p-4 cursor-pointer flex justify-between items-center gap-3">
+                                <h3
+                                    class="flex-1 md:text-lg text-base font-medium text-dark group-hover:text-primary transition-colors duration-300">
+                                    What grooming services do you offer for dogs?</h3>
+                                <div
+                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                    <i class="fas fa-plus faq-icon text-primary transition-transform"></i>
+                                </div>
+                            </div>
+                            <div class="faq-content lg:p-5 p-4 border-t">
+                                <p>Our dog grooming services include bath and brush, full haircuts, nail trimming, ear cleaning, 
+                                   teeth brushing, de-shedding treatments, and specialized skin treatments. We also offer breed-specific 
+                                   styling and can accommodate special needs for senior dogs or those with skin sensitivities.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border overflow-hidden group">
+                            <div class="faq-toggle lg:p-5 p-4 cursor-pointer flex justify-between items-center gap-3">
+                                <h3
+                                    class="flex-1 md:text-lg text-base font-medium text-dark group-hover:text-primary transition-colors duration-300">
+                                    Do you offer grooming services for cats?</h3>
+                                <div
+                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                    <i class="fas fa-plus faq-icon text-primary transition-transform"></i>
+                                </div>
+                            </div>
+                            <div class="faq-content lg:p-5 p-4 border-t">
+                                <p>Yes, we offer specialized cat grooming services including bathing, nail trimming, ear cleaning, 
+                                   lion cuts, and de-shedding treatments. Our groomers are trained to handle cats with care and patience, 
+                                   and we use cat-specific products that are gentle on their sensitive skin. We also provide a calm 
+                                   environment to minimize stress for your feline friend.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Boarding & Daycare FAQ -->
+                <div class="lg:mb-12 mb-8">
+                    <div class="flex items-center lg:mb-8 mb-6">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-primary to-primary/70 rounded-xl flex items-center justify-center me-4 text-white shadow-md">
+                            <i class="fas fa-home text-base"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-dark">Boarding & Daycare</h2>
+                    </div>
+                    <div class="space-y-5">
+                        <div
+                            class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border overflow-hidden group">
+                            <div class="faq-toggle lg:p-5 p-4 cursor-pointer flex justify-between items-center gap-3">
+                                <h3
+                                    class="flex-1 md:text-lg text-base font-medium text-dark group-hover:text-primary transition-colors duration-300">
+                                    What are your boarding facilities like?</h3>
+                                <div
+                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                    <i class="fas fa-plus faq-icon text-primary transition-transform"></i>
+                                </div>
+                            </div>
+                            <div class="faq-content lg:p-5 p-4 border-t">
+                                <p>Our boarding facilities feature spacious, climate-controlled kennels with comfortable bedding. 
+                                   Dogs get multiple outdoor play sessions daily in our secure play yards, while cats enjoy multi-level 
+                                   condos with climbing spaces. We provide 24/7 supervision, regular feeding schedules based on your 
+                                   pet's routine, and administration of any required medications. Our facility is designed to minimize 
+                                   stress and maximize comfort for all pets.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border overflow-hidden group">
+                            <div class="faq-toggle lg:p-5 p-4 cursor-pointer flex justify-between items-center gap-3">
+                                <h3
+                                    class="flex-1 md:text-lg text-base font-medium text-dark group-hover:text-primary transition-colors duration-300">
+                                    What does pet daycare include?</h3>
+                                <div
+                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                    <i class="fas fa-plus faq-icon text-primary transition-transform"></i>
+                                </div>
+                            </div>
+                            <div class="faq-content lg:p-5 p-4 border-t">
+                                <p>Our pet daycare includes supervised play sessions in groups matched by size, temperament, and energy level. 
+                                   Your pet will enjoy indoor and outdoor play areas with agility equipment, toys, and water features in warm weather. 
+                                   We provide rest periods, fresh water, and optional lunch. Our trained staff monitors all interactions to ensure 
+                                   safety and positive socialization. We also offer enrichment activities like puzzle toys and basic training reinforcement.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border overflow-hidden group">
+                            <div class="faq-toggle lg:p-5 p-4 cursor-pointer flex justify-between items-center gap-3">
+                                <h3
+                                    class="flex-1 md:text-lg text-base font-medium text-dark group-hover:text-primary transition-colors duration-300">
+                                    What vaccinations are required for boarding and daycare?</h3>
+                                <div
+                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                    <i class="fas fa-plus faq-icon text-primary transition-transform"></i>
+                                </div>
+                            </div>
+                            <div class="faq-content lg:p-5 p-4 border-t">
+                                <p>For dogs, we require current vaccinations for Rabies, Distemper/Parvo (DHPP), and Bordetella (kennel cough). 
+                                   For cats, we require Rabies and FVRCP (feline distemper). All pets must be free of fleas, ticks, and contagious 
+                                   conditions. We recommend vaccines be administered at least 7 days before boarding or daycare. Please bring your 
+                                   pet's vaccination records on your first visit, and we'll keep them on file for future stays.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Policies & Booking FAQ -->
+                <div>
+                    <div class="flex items-center lg:mb-8 mb-6">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-primary to-primary/70 rounded-xl flex items-center justify-center me-4 text-white shadow-md">
+                            <i class="fas fa-clipboard-list text-base"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-dark">Policies & Booking</h2>
+                    </div>
+                    <div class="space-y-5">
+                        <div
+                            class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border overflow-hidden group">
+                            <div class="faq-toggle lg:p-5 p-4 cursor-pointer flex justify-between items-center gap-3">
+                                <h3
+                                    class="flex-1 md:text-lg text-base font-medium text-dark group-hover:text-primary transition-colors duration-300">
+                                    How do I book an appointment?</h3>
+                                <div
+                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                    <i class="fas fa-plus faq-icon text-primary transition-transform"></i>
+                                </div>
+                            </div>
+                            <div class="faq-content lg:p-5 p-4 border-t">
+                                <p>You can book an appointment through our website's online booking system, by calling our customer 
+                                   service line, or by visiting our location in person. For online bookings, select your desired service, 
+                                   preferred date and time, and provide your pet's information. We recommend booking at least 1-2 weeks 
+                                   in advance for grooming services and 2-4 weeks for boarding during peak seasons. Same-day appointments 
+                                   may be available for certain services based on our schedule.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border overflow-hidden group">
+                            <div class="faq-toggle lg:p-5 p-4 cursor-pointer flex justify-between items-center gap-3">
+                                <h3
+                                    class="flex-1 md:text-lg text-base font-medium text-dark group-hover:text-primary transition-colors duration-300">
+                                    What is your cancellation policy?</h3>
+                                <div
+                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                    <i class="fas fa-plus faq-icon text-primary transition-transform"></i>
+                                </div>
+                            </div>
+                            <div class="faq-content lg:p-5 p-4 border-t">
+                                <p>We require at least 24 hours' notice for cancellation of grooming appointments and 48 hours for 
+                                   daycare or boarding reservations. Late cancellations or no-shows may result in a cancellation fee 
+                                   of 50% of the service cost. We understand emergencies happen, so please contact us as soon as possible 
+                                   if you need to reschedule. For holiday boarding cancellations, we require 7 days' notice to receive a 
+                                   full refund of your deposit.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border overflow-hidden group">
+                            <div class="faq-toggle lg:p-5 p-4 cursor-pointer flex justify-between items-center gap-3">
+                                <h3
+                                    class="flex-1 md:text-lg text-base font-medium text-dark group-hover:text-primary transition-colors duration-300">
+                                    Do you accept pet insurance?</h3>
+                                <div
+                                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                                    <i class="fas fa-plus faq-icon text-primary transition-transform"></i>
+                                </div>
+                            </div>
+                            <div class="faq-content lg:p-5 p-4 border-t">
+                                <p>While we don't directly bill pet insurance companies, we provide detailed receipts and service 
+                                   documentation that you can submit to your pet insurance provider for reimbursement. Many wellness 
+                                   plans cover grooming and preventative care services. We recommend checking with your insurance 
+                                   provider about coverage details before your appointment. We accept all major credit cards, debit 
+                                   cards, and mobile payment options for your convenience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Still Have Questions -->
+                <div
+                    class="lg:mt-10 mt-6 bg-primary/10 rounded-2xl xl:p-8 lg:p-6 p-4 text-center relative z-[1] overflow-hidden">
+                    <div class="absolute z-[-1] top-0 end-0 w-32 h-32 bg-primary/10 rounded-full -me-16 -mt-16"></div>
+                    <div class="absolute z-[-1] bottom-0 start-0 w-32 h-32 bg-primary/10 rounded-full -ms-16 -mb-16">
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl mb-4">Still Have Questions?</h3>
+                        <p class="mb-5 max-w-xl mx-auto">Our friendly team is here to help with any questions you might
+                            have about our pet care services.</p>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <a href="contact.html" class="btn">
+                                <i class="fas fa-envelope"></i>
+                                Contact Us
+                            </a>
+                            <a href="tel:+1234567890" class="btn btn-secondary">
+                                <i class="fas fa-phone"></i>
+                                Call Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white lg:pt-20 pt-10 pb-5">
+        <div class="md:container w-full mx-auto px-4">
+            <div class="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-8 gap-6 items-center">
+                <!-- Contacts -->
+                <div>
+                    <h3 class="text-xl lg:mb-6 mb-5 text-primary">Contacts</h3>
+                    <div class="lg:space-y-4 space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-primary me-3"></i>
+                            <a href="tel:+880 170 1111 000"
+                                class="flex-1 hover:text-primary transition duration-300">+880 170 1111 000</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-primary me-3"></i>
+                            <a href="mailto:info@support.com"
+                                class="flex-1 hover:text-primary transition duration-300">info@support.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary me-3"></i>
+                            <p class="flex-1 max-w-[200px]">168/170, Avenue 01, Mirpur DOHS, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center CTA -->
+                <div
+                    class="xl:col-span-2 lg:col-span-1 sm:col-span-2 lg:order-none -order-1 text-center flex flex-col items-center justify-center h-full">
+                    <h2 class="max-w-xl text-2xl sm:text-3xl lg:text-4xl xl:text-5xl lg:mb-8 mb-5 leading-tight">
+                        Want To <span class="text-primary">Keep Your</span> Pet In, Our Center?
+                    </h2>
+                    <a href="contact.html" class="btn hover:border-white focus:border-white min-w-[150px]">Book Now</a>
+                </div>
+
+                <!-- Opening Hours & Social -->
+                <div class="sm:w-fit sm:ms-auto">
+                    <h3 class="text-xl lg:mb-6 mb-5 text-primary">Opening Hours</h3>
+                    <ul class="lg:space-y-3 space-y-2 lg:mb-6 mb-5">
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Mon - Fri:</span>
+                            <span>9.00AM - 6.00PM</span>
+                        </li>
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Saturday:</span>
+                            <span>9.00AM - 6.00PM</span>
+                        </li>
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Sunday:</span>
+                            <span>Closed</span>
+                        </li>
+                    </ul>
+                    <div class="flex gap-5 justify-start text-white">
+                        <a href="https://www.facebook.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-facebook-f lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://x.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-x-twitter lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-instagram lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-youtube lg:text-xl text-base"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-gray-600 text-gray-300 lg:mt-10 mt-5 pt-5 flex items-center justify-center text-center">
+                <p>
+                    © 2025 Petcare Is Proudly Powered By <a href="https://workdo.io/"
+                        class="text-primary hover:underline">WorkDo.</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="description"
+        content="Professional pet care and grooming services. Book appointments, shop pet products, and give your furry friends the care they deserve.">
+    <title>petcare | WorkDo</title>
+    <link rel="icon" href="assets/images/favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="tailwind.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="relative sticky top-0 z-10">
+        <!-- Top Bar -->
+        <div class="hidden lg:block bg-dark py-2 text-white">
+            <div class="md:container w-full mx-auto px-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-4 text-sm">
+                        <a href="tel:+1234567890"
+                            class="flex items-center gap-2 hover:text-primary transition-all duration-300">
+                            <i class="fas fa-phone"></i>
+                            (555) 123-4567
+                        </a>
+                        <a href="mailto:info@petcarepro.com"
+                            class="flex items-center gap-2 hover:text-primary transition-all duration-300">
+                            <i class="fa-solid fa-envelope"></i>
+                            info@petcarepro.com
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="https://www.facebook.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-facebook-f text-base"></i>
+                        </a>
+                        <a href="https://x.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-x-twitter text-base"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-instagram text-base"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="bg-white shadow-lg">
+            <div class="md:container w-full mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <div class="logo-col lg:max-w-[150px] max-w-[120px] w-full">
+                        <h1>
+                            <a href="index.html">
+                                <img src="assets/images/logo.png" alt="logo" loading="lazy">
+                            </a>
+                        </h1>
+                    </div>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center gap-6">
+                        
+                        <a href="services.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>Services</span>
+                        </a>
+                        <a href="about.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>About</span>
+                        </a>
+                        <a href="faq.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>FAQ</span>
+                        </a>
+                        <a href="contact.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>Contact</span>
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden">
+            <div
+                class="bg-white h-full w-full max-w-sm ms-auto transform rtl:-translate-x-full transition-transform duration-300 ease-in-out">
+                <div class="p-4 h-screen overflow-y-auto">
+                    <div class="flex justify-between items-center mb-4 pb-4 border-b">
+                        <div class="logo-col max-w-[100px] w-full">
+                            <a href="index.html">
+                                <img src="assets/images/logo.png" alt="logo" loading="lazy">
+                            </a>
+                        </div>
+                        <button id="mobile-menu-close"
+                            class="text-gray-500 hover:text-primary transition-all duration-300">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <nav class="space-y-4">
+                        <a href="index.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Home</a>
+                        <a href="services.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Services</a>
+                        <a href="about.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">About</a>
+                        <a href="faq.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">FAQ</a>
+                        <a href="contact.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Contact</a>
+                        
+                    </nav>
+
+                    <!-- Mobile Contact Info -->
+                    <div class="mt-5 pt-6 border-t border-gray-100">
+                        <h4 class="text-sm font-semibold text-gray-600 mb-4">CONTACT INFO</h4>
+                        <div class="space-y-3">
+                            <a href="tel:+1234567890"
+                                class="flex items-center text-gray-600 hover:text-primary duration-300">
+                                <i class="fas fa-phone text-base me-3 text-primary"></i>
+                                (555) 123-4567
+                            </a>
+                            <a href="mailto:info@petcarepro.com"
+                                class="flex items-center text-gray-600 hover:text-primary duration-300">
+                                <i class="fas fa-envelope text-base me-3 text-primary"></i>
+                                info@petcarepro.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Social Links -->
+                    <div class="mt-6 flex gap-4">
+                        <a href="https://www.facebook.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- common banner -->
+    <section class="banner-section relative lg:pt-20 pt-10 lg:pb-24 pb-12 bg-cover sm:bg-[right] bg-[80%] rtl:scale-x-[-1]"
+        style="background-image: url('assets/images/common-banner.png');">
+        <div class="md:container w-full mx-auto px-4 rtl:scale-x-[-1]">
+            <div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl mb-4 capitalize">adopt your buddy</h2>
+                <ul class="flex flex-wrap items-center capitalize">
+                    <li class="flex items-center capitalize">
+                        <a href="index.html">Home</a>
+                        <i class="fas fa-chevron-right mx-2 text-xs rtl:scale-x-[-1]"></i>
+                    </li>
+                    <li class="font-bold capitalize">Adoption</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="lg:py-20 py-10">
+        <div class="md:container w-full mx-auto px-4">
+            <!-- Section Header -->
+            <div class="text-center lg:mb-10 mb-6">
+                <div class="inline-block mb-4">
+                    <span
+                        class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm leading-none">
+                        <i class="fa-regular fa-calendar text-base me-2"></i>
+                        Book Now
+                    </span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl">
+                    Find Your <span class="text-primary">Perfect Pet</span>
+                </h2>
+            </div>
+
+            <!-- Appointment Form -->
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white h-full rounded-2xl shadow-xl xl:p-8 lg:p-6 p-4 relative overflow-hidden">
+                    <!-- Corner Decoration -->
+                    <div class="absolute -top-10 -start-10 w-20 h-20 bg-primary/5 rounded-full"></div>
+                    <div class="absolute -bottom-10 -end-10 w-20 h-20 bg-primary/5 rounded-full"></div>
+
+                    <h3 class="text-2xl mb-6">Adoption Application</h3>
+
+                    <form class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block font-medium mb-2">Full Name *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 start-0 ps-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-user w-5 h-5 text-gray-400"></i>
+                                </div>
+                                <input type="text" placeholder="Enter your full name" class="form-input !ps-10" required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-medium mb-2">Email Address *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 start-0 ps-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-envelope w-5 h-5 text-gray-400"></i>
+                                </div>
+                                <input type="email" placeholder="your@email.com" class="form-input !ps-10" required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-medium mb-2">Phone Number *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 start-0 ps-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-phone w-5 h-5 text-gray-400"></i>
+                                </div>
+                                <input type="tel" placeholder="(123) 456-7890" class="form-input !ps-10" required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-medium mb-2">Type of Pet *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 start-0 ps-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-paw w-5 h-5 text-gray-400"></i>
+                                </div>
+                                <select class="form-input !ps-10" required>
+                                    <option value="">Select Pet Type</option>
+                                    <option value="dog">Dog</option>
+                                    <option value="cat">Cat</option>
+                                    <option value="rabbit">Rabbit</option>
+                                    <option value="bird">Bird</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-medium mb-2">Breed</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 start-0 ps-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-tag w-5 h-5 text-gray-400"></i>
+                                </div>
+                                <input type="text" placeholder="e.g., Golden Retriever, Persian Cat" class="form-input !ps-10">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-medium mb-2">Pet Age</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 start-0 ps-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-calendar w-5 h-5 text-gray-400"></i>
+                                </div>
+                                <select class="form-input !ps-10">
+                                    <option value="">Select Age Range</option>
+                                    <option value="puppy-kitten">Puppy/Kitten (0-1 year)</option>
+                                    <option value="young">Young (1-3 years)</option>
+                                    <option value="adult">Adult (3-7 years)</option>
+                                    <option value="senior">Senior (7+ years)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-medium mb-2">Pet Gender</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 start-0 ps-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-venus-mars w-5 h-5 text-gray-400"></i>
+                                </div>
+                                <select class="form-input !ps-10">
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="no-preference">No Preference</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-medium mb-2">Pet Size</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 start-0 ps-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-ruler w-5 h-5 text-gray-400"></i>
+                                </div>
+                                <select class="form-input !ps-10">
+                                    <option value="">Select Size</option>
+                                    <option value="small">Small (Under 25 lbs)</option>
+                                    <option value="medium">Medium (25-60 lbs)</option>
+                                    <option value="large">Large (60-100 lbs)</option>
+                                    <option value="extra-large">Extra Large (Over 100 lbs)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-2">
+                            <label class="block font-medium mb-2">Address *</label>
+                            <div class="relative">
+                                <div class="absolute top-3 start-3 flex items-start pointer-events-none">
+                                    <i class="fas fa-map-marker-alt w-5 h-5 text-gray-400"></i>
+                                </div>
+                                <textarea rows="3" class="form-input !ps-10"
+                                    placeholder="Enter your complete address including city, state, and zip code" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-2">
+                            <label class="block font-medium mb-2">Reason for Adoption *</label>
+                            <div class="relative">
+                                <div class="absolute top-3 start-3 flex items-start pointer-events-none">
+                                    <i class="fas fa-heart w-5 h-5 text-gray-400"></i>
+                                </div>
+                                <textarea rows="4" class="form-input !ps-10"
+                                    placeholder="Please tell us why you want to adopt a pet and what kind of home environment you can provide..." required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-2">
+                            <button type="submit" class="w-full btn">
+                                <i class="fas fa-heart w-4 h-4"></i>
+                                Submit Application
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white lg:pt-20 pt-10 pb-5">
+        <div class="md:container w-full mx-auto px-4">
+            <div class="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-8 gap-6 items-center">
+                <!-- Contacts -->
+                <div>
+                    <h3 class="text-xl lg:mb-6 mb-5 text-primary">Contacts</h3>
+                    <div class="lg:space-y-4 space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-primary me-3"></i>
+                            <a href="tel:+880 170 1111 000"
+                                class="flex-1 hover:text-primary transition duration-300">+880 170 1111 000</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-primary me-3"></i>
+                            <a href="mailto:info@support.com"
+                                class="flex-1 hover:text-primary transition duration-300">info@support.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary me-3"></i>
+                            <p class="flex-1 max-w-[200px]">168/170, Avenue 01, Mirpur DOHS, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center CTA -->
+                <div
+                    class="xl:col-span-2 lg:col-span-1 sm:col-span-2 lg:order-none -order-1 text-center flex flex-col items-center justify-center h-full">
+                    <h2 class="max-w-xl text-2xl sm:text-3xl lg:text-4xl xl:text-5xl lg:mb-8 mb-5 leading-tight">
+                        Want To <span class="text-primary">Keep Your</span> Pet In, Our Center?
+                    </h2>
+                    <a href="contact.html" class="btn hover:border-white focus:border-white min-w-[150px]">Book Now</a>
+                </div>
+
+                <!-- Opening Hours & Social -->
+                <div class="sm:w-fit sm:ms-auto">
+                    <h3 class="text-xl lg:mb-6 mb-5 text-primary">Opening Hours</h3>
+                    <ul class="lg:space-y-3 space-y-2 lg:mb-6 mb-5">
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Mon - Fri:</span>
+                            <span>9.00AM - 6.00PM</span>
+                        </li>
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Saturday:</span>
+                            <span>9.00AM - 6.00PM</span>
+                        </li>
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Sunday:</span>
+                            <span>Closed</span>
+                        </li>
+                    </ul>
+                    <div class="flex gap-5 justify-start text-white">
+                        <a href="https://www.facebook.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-facebook-f lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://x.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-x-twitter lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-instagram lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-youtube lg:text-xl text-base"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-gray-600 text-gray-300 lg:mt-10 mt-5 pt-5 flex items-center justify-center text-center">
+                <p>
+                    © 2025 Petcare Is Proudly Powered By <a href="https://workdo.io/"
+                        class="text-primary hover:underline">WorkDo.</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>

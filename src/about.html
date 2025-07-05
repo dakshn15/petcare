@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="description"
+        content="Professional pet care and grooming services. Book appointments, shop pet products, and give your furry friends the care they deserve.">
+    <title>petcare | WorkDo</title>
+    <link rel="icon" href="assets/images/favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="swiper-bundle.min.css" />
+    <link rel="stylesheet" href="tailwind.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="relative sticky top-0 z-10">
+        <!-- Top Bar -->
+        <div class="hidden lg:block bg-dark py-2 text-white">
+            <div class="md:container w-full mx-auto px-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center gap-4 text-sm">
+                        <a href="tel:+1234567890"
+                            class="flex items-center gap-2 hover:text-primary transition-all duration-300">
+                            <i class="fas fa-phone"></i>
+                            (555) 123-4567
+                        </a>
+                        <a href="mailto:info@petcarepro.com"
+                            class="flex items-center gap-2 hover:text-primary transition-all duration-300">
+                            <i class="fa-solid fa-envelope"></i>
+                            info@petcarepro.com
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="https://www.facebook.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-facebook-f text-base"></i>
+                        </a>
+                        <a href="https://x.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-x-twitter text-base"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-instagram text-base"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="bg-white shadow-lg">
+            <div class="md:container w-full mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <div class="logo-col lg:max-w-[150px] max-w-[120px] w-full">
+                        <h1>
+                            <a href="index.html">
+                                <img src="assets/images/logo.png" alt="logo" loading="lazy">
+                            </a>
+                        </h1>
+                    </div>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden lg:flex items-center gap-6">
+                        
+                        <a href="services.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>Services</span>
+                        </a>
+                        <a href="about.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>About</span>
+                        </a>
+                        <a href="faq.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>FAQ</span>
+                        </a>
+                        <a href="contact.html"
+                            class="font-medium hover:text-primary transition duration-300 flex items-center">
+                            <span>Contact</span>
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden flex items-center justify-center h-10 w-10 rounded-full bg-primary/10 text-primary">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden">
+            <div
+                class="bg-white h-full w-full max-w-sm ms-auto transform rtl:-translate-x-full transition-transform duration-300 ease-in-out">
+                <div class="p-4 h-screen overflow-y-auto">
+                    <div class="flex justify-between items-center mb-4 pb-4 border-b">
+                        <div class="logo-col max-w-[100px] w-full">
+                            <a href="index.html">
+                                <img src="assets/images/logo.png" alt="logo" loading="lazy">
+                            </a>
+                        </div>
+                        <button id="mobile-menu-close"
+                            class="text-gray-500 hover:text-primary transition-all duration-300">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <nav class="space-y-4">
+                        <a href="index.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Home</a>
+                        <a href="services.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Services</a>
+                        <a href="about.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">About</a>
+                        <a href="faq.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">FAQ</a>
+                        <a href="contact.html"
+                            class="block text-base font-medium text-dark hover:text-primary transition-all duration-300">Contact</a>
+                        
+                    </nav>
+
+                    <!-- Mobile Contact Info -->
+                    <div class="mt-5 pt-6 border-t border-gray-100">
+                        <h4 class="text-sm font-semibold text-gray-600 mb-4">CONTACT INFO</h4>
+                        <div class="space-y-3">
+                            <a href="tel:+1234567890"
+                                class="flex items-center text-gray-600 hover:text-primary duration-300">
+                                <i class="fas fa-phone text-base me-3 text-primary"></i>
+                                (555) 123-4567
+                            </a>
+                            <a href="mailto:info@petcarepro.com"
+                                class="flex items-center text-gray-600 hover:text-primary duration-300">
+                                <i class="fas fa-envelope text-base me-3 text-primary"></i>
+                                info@petcarepro.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Social Links -->
+                    <div class="mt-6 flex gap-4">
+                        <a href="https://www.facebook.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://x.com/"
+                            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary text-base hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- common banner -->
+    <section class="banner-section relative lg:pt-20 pt-10 lg:pb-24 pb-12 bg-cover sm:bg-[right] bg-[80%] rtl:scale-x-[-1]"
+        style="background-image: url('assets/images/common-banner.png');">
+        <div class="md:container w-full mx-auto px-4 rtl:scale-x-[-1]">
+            <div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl mb-4 capitalize">About Us</h2>
+                <ul class="flex flex-wrap items-center capitalize">
+                    <li class="flex items-center capitalize">
+                        <a href="index.html">Home</a>
+                        <i class="fas fa-chevron-right mx-2 text-xs rtl:scale-x-[-1]"></i>
+                    </li>
+                    <li class="font-bold capitalize">About Us</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="lg:py-20 py-10">
+        <div class="md:container w-full mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-6 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl mb-5">Welcome to The Pet Care Company</h2>
+                    <p class="mb-4">
+                        Founded in 2015 by Sarah and Mike, two lifelong animal lovers, PetCare Pro began as a small
+                        neighborhood grooming service.
+                        What started as a passion project has grown into the most trusted pet care facility in the area.
+                    </p>
+                    <p class="mb-5">
+                        We believe that every pet deserves to be treated with love, respect, and professional care.
+                    </p>
+                    <ul class="list-disc font-medium ps-5 space-y-2 mb-5">
+                        <li>Graceful goldfish, to small, cute kittens</li>
+                        <li>Hungry horses: whatever the size of your pe</li>
+                        <li>Feeders are either veterinary qualified staf</li>
+                        <li>Experienced pet owners and animal lovers</li>
+                    </ul>
+                    <div class="flex items-center">
+                        <img src="assets/images/team-1.png" alt="Michael Chen"
+                            class="w-16 h-16 rounded-full object-cover border-2">
+                        <div class="ms-4">
+                            <h4 class="font-bold text-gray-800 mb-1">Michael Chen</h4>
+                            <p class="text-primary">Owner Pet Care</p>
+                        </div>
+                    </div>
+                </div>
+                    <div class="relative">
+                        <img src="assets/images/about-image.png"
+                            alt="Pet grooming facility" class="mx-auto">
+                        </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Counter Section -->
+    <section class="lg:py-20 py-10 bg-gradient-to-b from-white to-gray-100">
+        <div class="md:container w-full mx-auto px-4">
+            <div class="text-center lg:mb-10 mb-6">
+                <div class="inline-block mb-4">
+                    <span
+                        class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm leading-none">
+                        Our Achievements
+                    </span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl">
+                    The Numbers Speaks <span class="text-primary">Louder</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 gap-5">
+                <!-- Years in Business -->
+                <div
+                    class="bg-white rounded-2xl xl:p-8 lg:p-6 p-4 shadow-lg text-center transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 end-0 w-32 h-32 bg-primary/5 rounded-full -me-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="lg:w-20 lg:h-20 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white shadow-md transform group-hover:rotate-6 transition-transform duration-300">
+                            <i class="fas fa-calendar-alt lg:text-3xl text-2xl"></i>
+                        </div>
+                        <div class="counter xl:text-5xl md:text-4xl text-3xl font-bold mb-2" data-count="8">0</div>
+                        <h3 class="lg:text-xl text-base font-quicksand font-semibold text-primary mb-2">Years</h3>
+                    </div>
+                </div>
+
+                <!-- Happy Clients -->
+                <div
+                    class="bg-white rounded-2xl xl:p-8 lg:p-6 p-4 shadow-lg text-center transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 end-0 w-32 h-32 bg-primary/5 rounded-full -me-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="lg:w-20 lg:h-20 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white shadow-md transform group-hover:rotate-6 transition-transform duration-300">
+                            <i class="fas fa-thumbs-up lg:text-3xl text-2xl"></i>
+                        </div>
+                        <div class="counter xl:text-5xl md:text-4xl text-3xl font-bold mb-2" data-count="5000">0</div>
+                        <h3 class="lg:text-xl text-base font-quicksand font-semibold text-primary mb-2">Happy Clients
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Certified Groomers -->
+                <div
+                    class="bg-white rounded-2xl xl:p-8 lg:p-6 p-4 shadow-lg text-center transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 end-0 w-32 h-32 bg-primary/5 rounded-full -me-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="lg:w-20 lg:h-20 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white shadow-md transform group-hover:rotate-6 transition-transform duration-300">
+                            <i class="fas fa-shield-alt lg:text-3xl text-2xl"></i>
+                        </div>
+                        <div class="counter xl:text-5xl md:text-4xl text-3xl font-bold mb-2" data-count="15">0</div>
+                        <h3 class="lg:text-xl text-base font-quicksand font-semibold text-primary mb-2">Certified
+                            Groomers</h3>
+                    </div>
+                </div>
+
+                <!-- Services Offered -->
+                <div
+                    class="bg-white rounded-2xl xl:p-8 lg:p-6 p-4 shadow-lg text-center transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 end-0 w-32 h-32 bg-primary/5 rounded-full -me-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500">
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="lg:w-20 lg:h-20 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white shadow-md transform group-hover:rotate-6 transition-transform duration-300">
+                            <i class="fas fa-paw lg:text-3xl text-2xl"></i>
+                        </div>
+                        <div class="counter xl:text-5xl md:text-4xl text-3xl font-bold mb-2" data-count="20">0</div>
+                        <h3 class="lg:text-xl text-base font-quicksand font-semibold text-primary mb-2">Services</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="lg:py-20 py-10 bg-white">
+        <div class="md:container w-full mx-auto px-4">
+            <div class="text-center lg:mb-10 mb-6">
+                <div class="inline-block mb-4">
+                    <span
+                        class="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm leading-none">
+                        Team
+                    </span>
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl">
+                    Meet Our <span class="text-primary">Experts</span>
+                </h2>
+            </div>
+            <div class="swiper team-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="flex items-end relative z-[1] sm:h-[550px] h-[450px] rounded-full overflow-hidden group">
+                            <img src="assets/images/team-1.png" alt="Sarah Wilson"
+                                class="absolute z-[-1] inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div
+                                class="text-center flex flex-col items-center justify-center w-full md:pt-8 pt-6 md:px-12 px-8 md:pb-16 pb-10 backdrop-blur-md bg-secondary/80 text-white transform transition-all duration-300">
+                                <h3 class="text-2xl mb-2">Sarah Wilson</h3>
+                                <p class="font-medium text-primary mb-3">Founder & Lead Groomer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="flex items-end relative z-[1] sm:h-[550px] h-[450px] rounded-full overflow-hidden group">
+                            <img src="assets/images/team-2.png" alt="Mike Thompson"
+                                class="absolute z-[-1] inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div
+                                class="text-center flex flex-col items-center justify-center w-full md:pt-8 pt-6 md:px-12 px-8 md:pb-16 pb-10 backdrop-blur-md bg-secondary/80 text-white transform transition-all duration-300">
+                                <h3 class="text-2xl mb-2">Mike Thompson</h3>
+                                <p class="font-medium text-primary mb-3">Co-Founder</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="flex items-end relative z-[1] sm:h-[550px] h-[450px] rounded-full overflow-hidden group">
+                            <img src="assets/images/team-3.png" alt="Jennifer Martinez"
+                                class="absolute z-[-1] inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div
+                                class="text-center flex flex-col items-center justify-center w-full md:pt-8 pt-6 md:px-12 px-8 md:pb-16 pb-10 backdrop-blur-md bg-secondary/80 text-white transform transition-all duration-300">
+                                <h3 class="text-2xl mb-2">Jennifer Martinez</h3>
+                                <p class="font-medium text-primary mb-3">Senior Groomer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="flex items-end relative z-[1] sm:h-[550px] h-[450px] rounded-full overflow-hidden group">
+                            <img src="assets/images/team-4.png" alt="David Chen"
+                                class="absolute z-[-1] inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div
+                                class="text-center flex flex-col items-center justify-center w-full md:pt-8 pt-6 md:px-12 px-8 md:pb-16 pb-10 backdrop-blur-md bg-secondary/80 text-white transform transition-all duration-300">
+                                <h3 class="text-2xl mb-2">David Chen</h3>
+                                <p class="font-medium text-primary mb-3">Specialty Stylist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow-wrapper">
+                    <div class="swiper-button-next team-arrow"></div>
+                    <div class="swiper-button-prev team-arrow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white lg:pt-20 pt-10 pb-5">
+        <div class="md:container w-full mx-auto px-4">
+            <div class="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-8 gap-6 items-center">
+                <!-- Contacts -->
+                <div>
+                    <h3 class="text-xl lg:mb-6 mb-5 text-primary">Contacts</h3>
+                    <div class="lg:space-y-4 space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-primary me-3"></i>
+                            <a href="tel:+880 170 1111 000"
+                                class="flex-1 hover:text-primary transition duration-300">+880 170 1111 000</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-primary me-3"></i>
+                            <a href="mailto:info@support.com"
+                                class="flex-1 hover:text-primary transition duration-300">info@support.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary me-3"></i>
+                            <p class="flex-1 max-w-[200px]">168/170, Avenue 01, Mirpur DOHS, India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center CTA -->
+                <div
+                    class="xl:col-span-2 lg:col-span-1 sm:col-span-2 lg:order-none -order-1 text-center flex flex-col items-center justify-center h-full">
+                    <h2 class="max-w-xl text-2xl sm:text-3xl lg:text-4xl xl:text-5xl lg:mb-8 mb-5 leading-tight">
+                        Want To <span class="text-primary">Keep Your</span> Pet In, Our Center?
+                    </h2>
+                    <a href="contact.html" class="btn hover:border-white focus:border-white min-w-[150px]">Book Now</a>
+                </div>
+
+                <!-- Opening Hours & Social -->
+                <div class="sm:w-fit sm:ms-auto">
+                    <h3 class="text-xl lg:mb-6 mb-5 text-primary">Opening Hours</h3>
+                    <ul class="lg:space-y-3 space-y-2 lg:mb-6 mb-5">
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Mon - Fri:</span>
+                            <span>9.00AM - 6.00PM</span>
+                        </li>
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Saturday:</span>
+                            <span>9.00AM - 6.00PM</span>
+                        </li>
+                        <li class="flex lg:gap-8 gap-5">
+                            <span>Sunday:</span>
+                            <span>Closed</span>
+                        </li>
+                    </ul>
+                    <div class="flex gap-5 justify-start text-white">
+                        <a href="https://www.facebook.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-facebook-f lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://x.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-x-twitter lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-instagram lg:text-xl text-base"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" class="hover:text-primary transition duration-300">
+                            <i class="fab fa-youtube lg:text-xl text-base"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-gray-600 text-gray-300 lg:mt-10 mt-5 pt-5 flex items-center justify-center text-center">
+                <p>
+                    © 2025 Petcare Is Proudly Powered By <a href="https://workdo.io/"
+                        class="text-primary hover:underline">WorkDo.</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

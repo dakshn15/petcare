@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="description"
+        content="Professional pet care and grooming services. Book appointments, shop pet products, and give your furry friends the care they deserve.">
+    <title>Page Not Found | PetCare</title>
+    <link rel="icon" href="assets/images/favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="all.min.css">
+    <link rel="stylesheet" href="tailwind.css">
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        .paw-print {
+            position: absolute;
+            opacity: 0.1;
+            transform: rotate(var(--rotation));
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 relative overflow-hidden">
+        <!-- Paw print background decorations -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <div class="paw-print text-primary top-[10%] left-[10%]" style="--rotation: 15deg">🐾</div>
+            <div class="paw-print text-primary top-[20%] right-[15%]" style="--rotation: -10deg">🐾</div>
+            <div class="paw-print text-primary bottom-[15%] left-[20%]" style="--rotation: 25deg">🐾</div>
+            <div class="paw-print text-primary bottom-[25%] right-[10%]" style="--rotation: -20deg">🐾</div>
+            <div class="paw-print text-primary top-[40%] left-[30%]" style="--rotation: 5deg">🐾</div>
+            <div class="paw-print text-primary top-[60%] right-[25%]" style="--rotation: -15deg">🐾</div>
+            <div class="paw-print text-primary text-6xl top-[70%] left-[15%]" style="--rotation: 10deg">🐾</div>
+            <div class="paw-print text-primary text-5xl top-[30%] right-[20%]" style="--rotation: -5deg">🐾</div>
+        </div>
+        
+        <div class="max-w-lg w-full text-center relative">
+            
+            <!-- Error message -->
+            <div>
+                <h2 class="text-7xl md:text-9xl mb-4">404</h2>
+                <h3 class="md:text-4xl sm:text-3xl text-2xl mb-4">Oops! Page Not Found</h3>
+                <p class="text-gray-600 lg:mb-8 mb-5 lg:text-lg">Looks like this page has gone for a walk. Our furry friend is still searching for it!</p>
+                
+                <!-- Action buttons -->
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <a href="index.html" class="btn">
+                        <i class="fas fa-home"></i>
+                        Back to Home
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Contact Support
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Additional help links -->
+            <div class="lg:mt-8 mt-6 bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow">
+                <p class="text-gray-500">Need help finding something? Try our <a href="services.html" class="text-primary hover:underline font-medium">services page</a> or <a href="faq.html" class="text-primary hover:underline font-medium">FAQ section</a>.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
