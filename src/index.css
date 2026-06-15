@@ -227,6 +227,21 @@ textarea {
   color: var(--primary);
 }
 
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    display: none;
+}
+
+.swiper-button-next svg,
+.swiper-button-prev svg {
+    height: 16px;
+    width: 16px;
+}
+
+.swiper-pagination-hero {
+  z-index: 1;
+}
+
 /* service details css */
 .water-droplet {
   position: absolute;

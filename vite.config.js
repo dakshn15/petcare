@@ -15,6 +15,9 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      devOptions: {
+        enabled: true
+      },
       filename: 'petcare-sw.js',
       includeAssets: ['favicon.ico', 'assets/images/favicon.png', 'assets/images/logo.png'],
       manifest: {
