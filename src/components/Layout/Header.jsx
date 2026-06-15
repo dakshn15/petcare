@@ -5,6 +5,8 @@ import { getCurrentUser, logoutUser } from '../../utils/storage';
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [isInstallVisible, setIsInstallVisible] = useState(false);
 
   const checkAuth = () => {
     setUser(getCurrentUser());
@@ -14,10 +16,32 @@ export default function Header() {
     checkAuth();
     window.addEventListener('authChange', checkAuth);
 
+    const promptHandler = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      setIsInstallVisible(true);
+    };
+
+    window.addEventListener('beforeinstallprompt', promptHandler);
+
+    if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+      setIsInstallVisible(false);
+    }
+
     return () => {
       window.removeEventListener('authChange', checkAuth);
+      window.removeEventListener('beforeinstallprompt', promptHandler);
     };
   }, []);
+
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    setDeferredPrompt(null);
+    setIsInstallVisible(false);
+    closeMobileMenu();
+  };
 
   const handleLogout = () => {
     logoutUser();
@@ -343,6 +367,14 @@ export default function Header() {
                         Sign Up
                       </Link>
                     </div>
+                  )}
+                  {isInstallVisible && (
+                    <button
+                      onClick={handleInstallClick}
+                      className="w-full flex items-center justify-center gap-2 py-2.5 mt-2 bg-secondary text-white font-bold rounded-full text-sm shadow-md hover:bg-primary transition-all duration-300 cursor-pointer"
+                    >
+                      <i className="fas fa-download"></i> Install App
+                    </button>
                   )}
                 </div>
               </nav>
