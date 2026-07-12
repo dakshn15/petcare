@@ -113,4 +113,4 @@ Run the concurrently script to launch both backend and frontend servers in paral
 npm run dev
 ```
 Open [http://localhost:5173](http://localhost:5173) in your browser.
-To access the Admin panel, login as `admin@petcare.com` and click **Admin Panel** in the Dashboard.
+To access the Admin panel, login as `admin@petcare.com`
