@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import User from '../models/User.js';
 import Service from '../models/Service.js';
 import FAQ from '../models/FAQ.js';
@@ -7,7 +9,10 @@ import WebsiteSettings from '../models/WebsiteSettings.js';
 import Pet from '../models/Pet.js';
 import Review from '../models/Review.js';
 
-dotenv.config({ path: '../../.env' });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/petcare';
 
