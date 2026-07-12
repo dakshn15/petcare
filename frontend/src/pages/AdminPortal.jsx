@@ -80,7 +80,10 @@ export default function AdminPortal() {
 
         <div className="p-4 border-t border-gray-800">
           <button
-            onClick={logout}
+            onClick={async () => {
+              await logout();
+              navigate('/login');
+            }}
             className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl text-xs transition"
           >
             <i className="fas fa-sign-out-alt"></i> Sign Out
