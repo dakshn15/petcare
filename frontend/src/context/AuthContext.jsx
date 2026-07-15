@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import * as authApi from '../api/authApi';
+import PageLoader from '../components/UI/PageLoader';
 
 export const AuthContext = createContext(null);
 
@@ -112,9 +113,20 @@ export const AuthProvider = ({ children }) => {
     refreshUser: fetchProfile
   };
 
+  // Show a branded loading screen while the initial auth check is in progress
+  // This prevents a blank white page flash on first visit
+  if (loading && !user) {
+    return (
+      <AuthContext.Provider value={value}>
+        <PageLoader message="Preparing your experience…" />
+      </AuthContext.Provider>
+    );
+  }
+
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 };
+

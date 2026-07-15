@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import * as serviceApi from '../api/serviceApi';
+import PageLoader from '../components/UI/PageLoader';
 
 export default function ServiceDetails() {
   const [searchParams] = useSearchParams();
@@ -54,7 +55,7 @@ export default function ServiceDetails() {
   };
 
   if (loading) {
-    return <div className="min-h-screen flex items-center justify-center bg-gray-50 text-gray-500">Loading service details...</div>;
+    return <PageLoader message="Loading service details…" />;
   }
 
   if (!service) {

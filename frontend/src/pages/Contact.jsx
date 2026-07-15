@@ -13,7 +13,7 @@ export default function Contact() {
 
   const [settings, setSettings] = useState({
     phone: '(555) 123-4567',
-    email: 'info@petcarepro.com',
+    email: 'info@petcare.com',
     address: '168/170, Avenue 01, Mirpur DOHS, India',
     socialLinks: { facebook: 'https://www.facebook.com/', instagram: 'https://www.instagram.com/', twitter: 'https://x.com/' }
   });
@@ -291,7 +291,7 @@ export default function Contact() {
             {/* Visit card */}
             <div className="bg-white rounded-2xl xl:p-8 lg:p-6 p-4 shadow-lg text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group">
               <div className="absolute top-0 end-0 w-32 h-32 bg-primary/5 rounded-full -me-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500"></div>
-              <div className="relative z-10">
+              <div className="relative z-[1]">
                 <div className="lg:w-20 lg:h-20 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white shadow-md transform group-hover:rotate-6 transition-transform duration-300">
                   <i className="fas fa-map-marker-alt text-2xl"></i>
                 </div>
@@ -314,7 +314,7 @@ export default function Contact() {
             {/* Call card */}
             <div className="bg-white rounded-2xl xl:p-8 lg:p-6 p-4 shadow-lg text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group">
               <div className="absolute top-0 end-0 w-32 h-32 bg-primary/5 rounded-full -me-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500"></div>
-              <div className="relative z-10">
+              <div className="relative z-[1]">
                 <div className="lg:w-20 lg:h-20 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white shadow-md transform group-hover:rotate-6 transition-transform duration-300">
                   <i className="fas fa-phone text-2xl"></i>
                 </div>
@@ -334,7 +334,7 @@ export default function Contact() {
             {/* Email card */}
             <div className="bg-white rounded-2xl xl:p-8 lg:p-6 p-4 shadow-lg text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group">
               <div className="absolute top-0 end-0 w-32 h-32 bg-primary/5 rounded-full -me-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500"></div>
-              <div className="relative z-10">
+              <div className="relative z-[1]">
                 <div className="lg:w-20 lg:h-20 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white shadow-md transform group-hover:rotate-6 transition-transform duration-300">
                   <i className="fas fa-envelope text-2xl"></i>
                 </div>

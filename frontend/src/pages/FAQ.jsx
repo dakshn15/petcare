@@ -76,7 +76,7 @@ export default function FAQ() {
             <div className="lg:mt-12 mt-8 bg-primary/10 rounded-3xl xl:p-10 lg:p-8 p-6 text-center relative overflow-hidden group">
               <div className="absolute top-0 end-0 w-32 h-32 bg-primary/5 rounded-full -me-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500"></div>
               <div className="absolute bottom-0 start-0 w-32 h-32 bg-primary/5 rounded-full -ms-16 -mb-16 group-hover:bg-primary/10 transition-colors duration-500"></div>
-              <div className="relative z-10">
+              <div className="relative z-[1]">
                 <h3 className="text-2xl md:text-3xl font-bold font-quicksand text-dark mb-4">Still Have Questions?</h3>
                 <p className="mb-6 max-w-xl mx-auto text-gray-600 leading-relaxed text-sm md:text-base">
                   Our friendly team is here to help with any questions you might have about our pet care services.

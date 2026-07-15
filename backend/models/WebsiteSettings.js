@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const websiteSettingsSchema = new mongoose.Schema({
   siteName: {
     type: String,
-    default: 'Petcare Pro'
+    default: 'Petcare'
   },
   phone: {
     type: String,
@@ -11,7 +11,7 @@ const websiteSettingsSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    default: 'info@petcarepro.com'
+    default: 'info@petcare.com'
   },
   address: {
     type: String,

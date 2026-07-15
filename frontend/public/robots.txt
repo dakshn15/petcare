@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /account/
 
-Sitemap: https://petcarepro.com/sitemap.xml
+Sitemap: https://petcare.com/sitemap.xml

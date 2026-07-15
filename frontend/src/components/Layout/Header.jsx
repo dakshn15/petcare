@@ -8,7 +8,7 @@ export default function Header() {
   const { user, logout } = useAuth();
   const [settings, setSettings] = useState({
     phone: '(555) 123-4567',
-    email: 'info@petcarepro.com',
+    email: 'info@petcare.com',
     socialLinks: { facebook: 'https://www.facebook.com/', instagram: 'https://www.instagram.com/', twitter: 'https://x.com/' }
   });
   const [deferredPrompt, setDeferredPrompt] = useState(null);

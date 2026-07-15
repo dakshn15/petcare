@@ -9,6 +9,7 @@ import * as reviewApi from '../api/reviewApi';
 import * as contactApi from '../api/contactApi';
 import * as petApi from '../api/petApi';
 import * as userApi from '../api/userApi';
+import PageLoader from '../components/UI/PageLoader';
 
 export default function AdminPortal() {
   const { user, isAdmin, logout, loading: authLoading } = useAuth();
@@ -25,14 +26,7 @@ export default function AdminPortal() {
   }, [user, isAdmin, authLoading, navigate]);
 
   if (authLoading || !user || !isAdmin) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 text-gray-500">
-        <div className="text-center">
-          <i className="fas fa-spinner animate-spin text-4xl text-primary mb-4"></i>
-          <p className="font-medium">Checking authorization...</p>
-        </div>
-      </div>
-    );
+    return <PageLoader message="Checking authorization…" />;
   }
 
   return (
@@ -1362,7 +1356,7 @@ function SettingsView() {
   const [successMsg, setSuccessMsg] = useState('');
 
   const [formData, setFormData] = useState({
-    businessName: 'Petcare Pro',
+    businessName: 'Petcare',
     phone: '',
     email: '',
     address: '',
@@ -1381,7 +1375,7 @@ function SettingsView() {
         if (res?.success && res.data) {
           const d = res.data;
           setFormData({
-            businessName: d.businessName || 'Petcare Pro',
+            businessName: d.businessName || 'Petcare',
             phone: d.phone || '',
             email: d.email || '',
             address: d.address || '',

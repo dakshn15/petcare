@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import * as petApi from '../api/petApi';
+import PageLoader from '../components/UI/PageLoader';
 
 export default function PetDetails() {
   const [searchParams] = useSearchParams();
@@ -32,14 +33,7 @@ export default function PetDetails() {
   }, [petId, navigate]);
 
   if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 text-gray-500">
-        <div className="text-center">
-          <i className="fas fa-spinner animate-spin text-4xl text-primary mb-4"></i>
-          <p>Loading pet details...</p>
-        </div>
-      </div>
-    );
+    return <PageLoader message="Loading pet details…" />;
   }
 
   if (!pet) {

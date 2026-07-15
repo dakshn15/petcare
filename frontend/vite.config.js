@@ -14,7 +14,7 @@ export default defineConfig({
       includeAssets: ['favicon.ico', 'assets/images/favicon.png', 'assets/images/logo.png', 'assets/images/pwa-192.png', 'assets/images/pwa-512.png'],
       manifest: {
         id: 'petcare-dakshn15-pwa',
-        name: 'Petcare Pro',
+        name: 'Petcare',
         short_name: 'Petcare',
         description: 'Professional pet care and grooming services.',
         theme_color: '#e65742',

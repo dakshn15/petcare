@@ -34,7 +34,7 @@ export default function About() {
                 Welcome to The Pet Care Company
               </h2>
               <p className="mb-4 text-gray-600 leading-relaxed">
-                Founded in 2015 by Sarah and Mike, two lifelong animal lovers, PetCare Pro began as a small
+                Founded in 2015 by Sarah and Mike, two lifelong animal lovers, PetCare began as a small
                 neighborhood grooming service.
                 What started as a passion project has grown into the most trusted pet care facility in the area.
               </p>
@@ -88,7 +88,7 @@ export default function About() {
             {/* Years in Business */}
             <div className="bg-white rounded-2xl xl:p-8 lg:p-6 p-4 shadow-lg text-center transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group">
               <div className="absolute top-0 end-0 w-32 h-32 bg-primary/5 rounded-full -me-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500"></div>
-              <div className="relative z-10">
+              <div className="relative z-[1]">
                 <div className="lg:w-20 lg:h-20 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white shadow-md transform group-hover:rotate-6 transition-transform duration-300">
                   <i className="fas fa-calendar-alt lg:text-3xl text-2xl"></i>
                 </div>
@@ -102,7 +102,7 @@ export default function About() {
             {/* Happy Clients */}
             <div className="bg-white rounded-2xl xl:p-8 lg:p-6 p-4 shadow-lg text-center transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group">
               <div className="absolute top-0 end-0 w-32 h-32 bg-primary/5 rounded-full -me-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500"></div>
-              <div className="relative z-10">
+              <div className="relative z-[1]">
                 <div className="lg:w-20 lg:h-20 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white shadow-md transform group-hover:rotate-6 transition-transform duration-300">
                   <i className="fas fa-thumbs-up lg:text-3xl text-2xl"></i>
                 </div>
@@ -116,7 +116,7 @@ export default function About() {
             {/* Certified Groomers */}
             <div className="bg-white rounded-2xl xl:p-8 lg:p-6 p-4 shadow-lg text-center transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group">
               <div className="absolute top-0 end-0 w-32 h-32 bg-primary/5 rounded-full -me-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500"></div>
-              <div className="relative z-10">
+              <div className="relative z-[1]">
                 <div className="lg:w-20 lg:h-20 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white shadow-md transform group-hover:rotate-6 transition-transform duration-300">
                   <i className="fas fa-shield-alt lg:text-3xl text-2xl"></i>
                 </div>
@@ -130,7 +130,7 @@ export default function About() {
             {/* Services Offered */}
             <div className="bg-white rounded-2xl xl:p-8 lg:p-6 p-4 shadow-lg text-center transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group">
               <div className="absolute top-0 end-0 w-32 h-32 bg-primary/5 rounded-full -me-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500"></div>
-              <div className="relative z-10">
+              <div className="relative z-[1]">
                 <div className="lg:w-20 lg:h-20 w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto mb-5 text-white shadow-md transform group-hover:rotate-6 transition-transform duration-300">
                   <i className="fas fa-paw lg:text-3xl text-2xl"></i>
                 </div>

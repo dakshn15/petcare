@@ -4,6 +4,7 @@ import { useAuth } from '../hooks/useAuth';
 import * as bookingApi from '../api/bookingApi';
 import * as adoptionApi from '../api/adoptionApi';
 import confetti from 'canvas-confetti';
+import PageLoader from '../components/UI/PageLoader';
 
 export default function Account() {
   const { user, logout } = useAuth();
@@ -82,7 +83,7 @@ export default function Account() {
   };
 
   if (!user) {
-    return <div className="min-h-screen flex items-center justify-center bg-gray-50 text-gray-500">Loading profile...</div>;
+    return <PageLoader message="Loading your profile…" />;
   }
 
   return (

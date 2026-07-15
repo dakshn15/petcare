@@ -64,6 +64,7 @@ export default function TestimonialSwiper() {
         modules={[Pagination]}
         pagination={{
           clickable: true,
+          dynamicBullets: true,
           el: '.testimonial-pagination',
         }}
         spaceBetween={20}
@@ -81,7 +82,7 @@ export default function TestimonialSwiper() {
             slidesPerView: 2,
           },
         }}
-        className="testimonial-swiper"
+        className="testimonial-swiper !pb-[30px]"
       >
         {testimonials.map((t) => (
           <SwiperSlide key={t.id}>
@@ -104,10 +105,9 @@ export default function TestimonialSwiper() {
             </div>
           </SwiperSlide>
         ))}
+        {/* Pagination indicators */}
+        <div className="testimonial-pagination swiper-pagination !bottom-0"></div>
       </Swiper>
-      
-      {/* Pagination indicators */}
-      <div className="testimonial-pagination swiper-pagination !bottom-0"></div>
     </div>
   );
 }
