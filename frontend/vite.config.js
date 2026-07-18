@@ -83,5 +83,17 @@ export default defineConfig({
         changeOrigin: true
       }
     }
+  },
+  build: {
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        minify: {
+          compress: {
+            dropConsole: true
+          }
+        }
+      }
+    }
   }
 })

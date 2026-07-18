@@ -159,10 +159,12 @@ export default function Contact() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                     {Object.keys(errors).length > 0 && (
-                      <div className="bg-red-50 text-red-700 p-4 rounded-xl border border-red-100 flex items-start gap-3 text-sm">
-                        <i className="fas fa-exclamation-circle text-lg mt-0.5"></i>
+                      <div className="bg-red-50 text-red-700 p-4 rounded-xl border border-red-100 flex items-start gap-3 text-sm animate-shake">
+                        <i className="fas fa-exclamation-circle text-lg"></i>
                         <div>
-                          <strong className="font-bold block mb-1">Please fix the validation errors:</strong>
+                          <strong className="font-bold block mb-1">
+                            {errors.submit ? 'Something went wrong:' : 'Please fix the following errors:'}
+                          </strong>
                           <ul className="list-disc ps-4 space-y-1">
                             {Object.values(errors).map((err, i) => (
                               <li key={i}>{err}</li>

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import * as contactApi from '../api/contactApi';
 
 export default function Pricing() {
-  const packages = [
+  const defaultPackages = [
     {
       name: 'Basic Package',
       desc: 'Perfect for routine care',
@@ -75,6 +76,29 @@ export default function Pricing() {
     }
   ];
 
+  const [packages, setPackages] = useState(defaultPackages);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const fetchPackages = React.useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await contactApi.getSettings();
+      if (res?.success && res.data?.packages && res.data.packages.length > 0) {
+        setPackages(res.data.packages);
+      }
+    } catch (err) {
+      setError(err.message || 'Error fetching dynamic packages. Loaded default pricing plans.');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchPackages();
+  }, [fetchPackages]);
+
   return (
     <div>
       {/* common banner */}
@@ -99,61 +123,73 @@ export default function Pricing() {
       {/* Pricing Packages */}
       <section className="lg:py-20 py-10 bg-white">
         <div className="md:container w-full mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-6 max-w-6xl mx-auto">
-            {packages.map((pkg, idx) => (
-              <div
-                key={idx}
-                className={`package-card flex flex-col sm:h-full group bg-white rounded-3xl xl:p-8 lg:p-6 p-4 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden ${
-                  pkg.popular ? 'border-2 border-primary shadow-xl z-[1] !pt-10' : 'border border-gray-100 shadow-lg'
-                }`}
+          {error && (
+            <div className="max-w-6xl mx-auto mb-8 bg-amber-50 border border-amber-200 text-amber-800 px-6 py-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <i className="fas fa-exclamation-circle text-lg text-amber-500"></i>
+                <span className="text-sm font-medium">{error}</span>
+              </div>
+              <button
+                onClick={fetchPackages}
+                className="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold rounded-xl shadow transition"
               >
-                <div className="flex-1">
-                  {pkg.popular && (
-                    <div className="absolute top-3 start-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-md uppercase tracking-wider">
-                      Most Popular
-                    </div>
-                  )}
-
-                  {!pkg.popular && (
-                    <div className="absolute -top-10 -start-10 w-20 h-20 bg-primary/5 rounded-full"></div>
-                  )}
-
-                  <div className="lg:w-20 lg:h-20 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <i className={`${pkg.icon} lg:text-3xl text-2xl text-primary`}></i>
-                  </div>
-
-                  <h3 className="text-xl lg:text-2xl mb-2 font-bold font-quicksand text-dark">{pkg.name}</h3>
-                  <div className="text-sm text-gray-500 mb-4">{pkg.desc}</div>
-                  <div className="text-3xl lg:text-4xl font-bold text-primary mb-6">${pkg.price}</div>
-
-                  <ul className="text-start space-y-3 lg:mb-8 mb-6 text-sm text-gray-700">
-                    {pkg.features.map((feature, fIdx) => (
-                      <li key={fIdx} className="flex items-center">
-                        <i className="fas fa-check text-green-500 me-3"></i>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <Link
-                  to={`/service-booking?service=${
-                    pkg.name === 'Basic Package' ? 'package-basic' :
-                    pkg.name === 'Premium Package' ? 'package-premium' :
-                    pkg.name === 'Deluxe Package' ? 'package-deluxe' :
-                    pkg.name === 'Senior Care' ? 'package-senior' :
-                    pkg.name === 'Show Ready' ? 'package-show' : ''
-                  }`}
-                  className={`w-full inline-flex items-center justify-center text-center px-5 py-3 rounded-full font-semibold transition duration-300 ${
-                    pkg.popular
-                      ? 'bg-primary text-white hover:bg-dark hover:scale-105 shadow-md'
-                      : 'bg-primary/10 border border-primary/10 text-primary hover:bg-primary hover:text-white'
+                <i className="fas fa-redo me-1.5"></i> Retry Fetch
+              </button>
+            </div>
+          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-6 max-w-6xl mx-auto">
+            {packages.map((pkg, idx) => {
+              const value = pkg.value || pkg.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+              const isPopular = pkg.popular;
+              return (
+                <div
+                  key={pkg._id || idx}
+                  className={`package-card flex flex-col sm:h-full group bg-white rounded-2xl shadow-lg xl:p-8 lg:p-6 p-4 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden relative border-2 ${
+                    isPopular ? 'border-primary' : 'border-gray-200 hover:border-primary'
                   }`}
                 >
-                  {pkg.btnText}
-                </Link>
-              </div>
-            ))}
+                  <div className="flex-1">
+                    {isPopular && (
+                      <div className="absolute top-3 start-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-md uppercase tracking-wider">
+                        Most Popular
+                      </div>
+                    )}
+
+                    {!isPopular && (
+                      <div className="absolute -top-10 -start-10 w-20 h-20 bg-primary/10 rounded-full"></div>
+                    )}
+
+                    <div className={`lg:w-20 lg:h-20 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 ${isPopular ? 'mt-4' : ''}`}>
+                      <i className={`${pkg.icon || 'fas fa-star'} lg:text-3xl text-2xl text-primary`}></i>
+                    </div>
+
+                    <h3 className="text-xl lg:text-2xl mb-2 font-bold font-quicksand text-dark">{pkg.name}</h3>
+                    <div className="text-sm text-gray-500 mb-4 font-medium">{pkg.desc}</div>
+                    <div className="text-3xl lg:text-4xl font-bold text-primary mb-5">${pkg.price}</div>
+
+                    <ul className="text-start space-y-3 lg:mb-8 mb-5 text-gray-600 font-medium">
+                      {(pkg.features || []).map((feature, fIdx) => (
+                        <li key={fIdx} className="flex items-center justify-center sm:justify-start">
+                          <i className="fas fa-check text-green-500 me-3"></i>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <Link
+                    to={`/service-booking?service=package-${value}`}
+                    className={`w-full inline-flex items-center justify-center text-center px-5 py-3 border rounded-full font-semibold leading-none transition duration-300 cursor-pointer ${
+                      isPopular
+                        ? 'bg-primary text-white border-primary hover:bg-dark hover:border-dark shadow-md'
+                        : 'bg-primary/10 border-primary/10 text-primary hover:bg-primary hover:text-white'
+                    }`}
+                  >
+                    {pkg.btnText || `Choose ${pkg.name.replace(' Package', '')}`}
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

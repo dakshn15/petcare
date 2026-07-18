@@ -93,7 +93,7 @@ export default function Login() {
       <section className="lg:py-20 py-10 bg-white">
         <div className="md:container w-full mx-auto px-4">
           <div className="max-w-md mx-auto">
-            <div className="bg-white rounded-3xl shadow-2xl p-6 lg:p-8 border border-gray-100 relative overflow-hidden group">
+            <div className="bg-white rounded-3xl shadow-2xl p-4 sm:p-6 lg:p-8 border border-gray-100 relative overflow-hidden group">
               <div className="absolute top-0 end-0 w-32 h-32 bg-primary/5 rounded-full -me-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500"></div>
               
               <div className="text-center mb-8">
@@ -102,8 +102,8 @@ export default function Login() {
               </div>
 
               {submitError && (
-                <div className="bg-red-50 text-red-700 p-4 rounded-xl border border-red-100 flex items-start gap-3 text-sm mb-6 animate-shake">
-                  <i className="fas fa-exclamation-circle text-lg mt-0.5"></i>
+                <div className="bg-red-50 text-red-700 p-4 rounded-xl border border-red-100 flex items-center gap-3 text-sm mb-6 animate-shake">
+                  <i className="fas fa-exclamation-circle text-lg"></i>
                   <span>{submitError}</span>
                 </div>
               )}
@@ -177,7 +177,7 @@ export default function Login() {
                 </button>
               </form>
 
-              <div className="text-center mt-6 pt-6 border-t border-gray-100 text-sm text-gray-500">
+              <div className="text-center sm:mt-6 sm:pt-6 mt-5 pt-4 border-t border-gray-100 text-sm text-gray-500">
                 Don't have an account?{' '}
                 <Link to="/register" className="text-primary hover:underline font-semibold">
                   Register here

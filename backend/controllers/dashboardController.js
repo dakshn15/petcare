@@ -41,9 +41,14 @@ export const getStats = async (req, res, next) => {
       return acc + (b.service?.price || 0);
     }, 0);
 
-    // Pending counts
-    const pendingBookings = await Booking.countDocuments({ status: 'Pending', isDeleted: false });
-    const pendingAdoptions = await AdoptionApplication.countDocuments({ status: 'Under Review', isDeleted: false });
+    // Booking status counts
+    const [pendingBookings, confirmedBookings, completedBookingsCount, cancelledBookings, pendingAdoptions] = await Promise.all([
+      Booking.countDocuments({ status: 'Pending', isDeleted: false }),
+      Booking.countDocuments({ status: 'Confirmed', isDeleted: false }),
+      Booking.countDocuments({ status: 'Completed', isDeleted: false }),
+      Booking.countDocuments({ status: 'Cancelled', isDeleted: false }),
+      AdoptionApplication.countDocuments({ status: 'Under Review', isDeleted: false })
+    ]);
 
     successResponse(res, {
       totalUsers,
@@ -56,6 +61,9 @@ export const getStats = async (req, res, next) => {
       totalServices,
       totalRevenue,
       pendingBookings,
+      confirmedBookings,
+      completedBookingsCount,
+      cancelledBookings,
       pendingAdoptions
     }, 'Dashboard stats fetched');
   } catch (error) {
@@ -157,6 +165,23 @@ export const getRecentActivities = async (req, res, next) => {
       .limit(limit);
 
     successResponse(res, activities, 'Activities fetched');
+  } catch (error) {
+    next(error);
+  }
+};
+
+// @desc    Get recent adoption applications
+// @route   GET /api/dashboard/recent-adoptions
+// @access  Admin
+export const getRecentAdoptions = async (req, res, next) => {
+  try {
+    const adoptions = await AdoptionApplication.find({ isDeleted: false })
+      .populate('user', 'name email')
+      .populate('pet', 'name breed')
+      .sort({ createdAt: -1 })
+      .limit(5);
+
+    successResponse(res, adoptions, 'Recent adoptions fetched');
   } catch (error) {
     next(error);
   }

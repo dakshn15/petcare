@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import Modal from '../components/UI/Modal';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import { useToast } from '../hooks/useToast';
 import * as bookingApi from '../api/bookingApi';
 import * as adoptionApi from '../api/adoptionApi';
 import confetti from 'canvas-confetti';
@@ -8,6 +10,7 @@ import PageLoader from '../components/UI/PageLoader';
 
 export default function Account() {
   const { user, logout } = useAuth();
+  const addToast = useToast();
   const [bookings, setBookings] = useState([]);
   const [adoptions, setAdoptions] = useState([]);
   const [loadingData, setLoadingData] = useState(true);
@@ -31,6 +34,7 @@ export default function Account() {
       }
     } catch (err) {
       console.error('Error fetching data:', err);
+      addToast(err.message || 'Failed to load your data. Please refresh the page.', 'error', 5000);
     } finally {
       setLoadingData(false);
     }
@@ -50,6 +54,7 @@ export default function Account() {
       navigate('/login');
     } catch (err) {
       console.error('Logout failed:', err);
+      addToast(err.message || 'Logout failed. Please try again.', 'error');
     }
   };
 
@@ -76,7 +81,7 @@ export default function Account() {
         });
       }
     } catch (err) {
-      alert(err.message || 'Failed to cancel booking');
+      addToast(err.message || 'Failed to cancel booking. Please try again.', 'error', 5000);
     } finally {
       setShowCancelConfirm(null);
     }
@@ -194,7 +199,7 @@ export default function Account() {
                 {activeTab === 'bookings' && (
                   <div>
                     {loadingData ? (
-                      <div className="text-center py-12 text-gray-400">Loading your bookings...</div>
+                      <PageLoader compact message="Loading your bookings…" />
                     ) : bookings.length === 0 ? (
                       <div className="text-center py-12 text-gray-400">
                         <i className="fas fa-calendar-alt text-4xl mb-4 opacity-50 block"></i>
@@ -271,7 +276,7 @@ export default function Account() {
                 {activeTab === 'adoptions' && (
                   <div>
                     {loadingData ? (
-                      <div className="text-center py-12 text-gray-400">Loading your applications...</div>
+                      <PageLoader compact message="Loading your applications…" />
                     ) : adoptions.length === 0 ? (
                       <div className="text-center py-12 text-gray-400">
                         <i className="fas fa-heart-broken text-4xl mb-4 opacity-50 block"></i>
@@ -334,33 +339,35 @@ export default function Account() {
       </section>
 
       {/* Confirmation Modal */}
-      {showCancelConfirm && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-6 max-w-sm w-full text-center shadow-2xl border border-gray-100 animate-fadeIn">
-            <div className="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
-              <i className="fas fa-exclamation-triangle"></i>
-            </div>
-            <h4 className="text-xl font-bold font-quicksand text-dark mb-2">Cancel Appointment?</h4>
-            <p className="text-gray-500 text-sm mb-6 leading-relaxed">
-              Are you sure you want to cancel this booking? This action cannot be undone.
-            </p>
-            <div className="flex gap-4">
-              <button
-                onClick={() => setShowCancelConfirm(null)}
-                className="flex-1 px-4 py-2.5 bg-gray-100 text-gray-700 font-bold rounded-full text-sm hover:bg-gray-200 transition duration-200"
-              >
-                Go Back
-              </button>
-              <button
-                onClick={confirmCancellation}
-                className="flex-1 px-4 py-2.5 bg-red-500 text-white font-bold rounded-full text-sm hover:bg-red-600 transition duration-200"
-              >
-                Yes, Cancel
-              </button>
-            </div>
+      <Modal
+        isOpen={!!showCancelConfirm}
+        onClose={() => setShowCancelConfirm(null)}
+        title="Cancel Appointment?"
+        maxWidth="max-w-sm"
+      >
+        <div className="p-6 text-center text-sm">
+          <div className="w-16 h-16 bg-red-100 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+            <i className="fas fa-exclamation-triangle"></i>
+          </div>
+          <p className="text-gray-500 mb-6 leading-relaxed">
+            Are you sure you want to cancel this booking? This action cannot be undone.
+          </p>
+          <div className="flex gap-4">
+            <button
+              onClick={() => setShowCancelConfirm(null)}
+              className="flex-1 px-4 py-2.5 bg-gray-100 text-gray-700 font-bold rounded-full text-xs hover:bg-gray-200 transition duration-200"
+            >
+              Go Back
+            </button>
+            <button
+              onClick={confirmCancellation}
+              className="flex-1 px-4 py-2.5 bg-red-500 text-white font-bold rounded-full text-xs hover:bg-red-600 transition duration-200"
+            >
+              Yes, Cancel
+            </button>
           </div>
         </div>
-      )}
+      </Modal>
     </div>
   );
 }

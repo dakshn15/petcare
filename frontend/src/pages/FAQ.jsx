@@ -6,22 +6,28 @@ import * as faqApi from '../api/faqApi';
 export default function FAQ() {
   const [faqCategories, setFaqCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const fetchFAQs = React.useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await faqApi.getFAQs();
+      if (res?.success && res.data) {
+        setFaqCategories(res.data || []);
+      } else {
+        setError('Failed to fetch FAQs');
+      }
+    } catch (err) {
+      setError(err.message || 'Error fetching FAQs');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
-    const fetchFAQs = async () => {
-      try {
-        const res = await faqApi.getFAQs();
-        if (res?.success && res.data) {
-          setFaqCategories(res.data || []);
-        }
-      } catch (err) {
-        console.error('Error fetching FAQs:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchFAQs();
-  }, []);
+  }, [fetchFAQs]);
 
   return (
     <div>
@@ -48,7 +54,17 @@ export default function FAQ() {
       <section className="lg:py-20 py-10 bg-white">
         <div className="md:container w-full mx-auto px-4">
           <div className="max-w-4xl mx-auto animate-fade-in">
-            {loading ? (
+            {error ? (
+              <div className="flex flex-col items-center justify-center py-16 text-center">
+                <div className="w-14 h-14 bg-red-100 rounded-2xl flex items-center justify-center text-red-500 text-xl mb-4">
+                  <i className="fas fa-exclamation-triangle"></i>
+                </div>
+                <p className="text-gray-600 font-medium mb-4">{error}</p>
+                <button onClick={fetchFAQs} className="px-5 py-2.5 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl text-sm transition shadow-md">
+                  <i className="fas fa-redo me-2"></i>Try Again
+                </button>
+              </div>
+            ) : loading ? (
               <div className="text-center py-12 text-gray-400 font-medium">Loading FAQs...</div>
             ) : faqCategories.length === 0 ? (
               <div className="text-center py-12 text-gray-400 font-medium">No FAQs found.</div>

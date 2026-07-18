@@ -9,42 +9,43 @@ export default function Pets() {
   const [pets, setPets] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
-  const [activeType, setActiveType] = useState('all'); // 'all', 'dog', 'cat', 'other'
-  const [genderFilter, setGenderFilter] = useState(''); // '', 'male', 'female'
-  const [sizeFilter, setSizeFilter] = useState(''); // '', 'small', 'medium', 'large'
+  const [activeType, setActiveType] = useState('all');
+  const [genderFilter, setGenderFilter] = useState('');
+  const [sizeFilter, setSizeFilter] = useState('');
+  const [error, setError] = useState(null);
+
+  const fetchPets = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const params = {};
+      if (activeType !== 'all') params.type = activeType;
+      if (searchTerm.trim() !== '') params.search = searchTerm.trim();
+      
+      const res = await petApi.getAvailablePets(params);
+      if (res?.success && res.data) {
+        let filteredData = res.data;
+        if (genderFilter) {
+          filteredData = filteredData.filter(pet => pet.gender === genderFilter);
+        }
+        if (sizeFilter) {
+          filteredData = filteredData.filter(pet => pet.size === sizeFilter);
+        }
+        setPets(filteredData);
+      } else {
+        setError('Failed to fetch pets data.');
+      }
+    } catch (err) {
+      setError(err.message || 'Error fetching adoptable pets');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchPets = async () => {
-      setLoading(true);
-      try {
-        const params = {};
-        if (activeType !== 'all') params.type = activeType;
-        if (searchTerm.trim() !== '') params.search = searchTerm.trim();
-        
-        const res = await petApi.getAvailablePets(params);
-        if (res?.success && res.data) {
-          // Client-side local filtering for gender and size if specified
-          let filteredData = res.data;
-          if (genderFilter) {
-            filteredData = filteredData.filter(pet => pet.gender === genderFilter);
-          }
-          if (sizeFilter) {
-            filteredData = filteredData.filter(pet => pet.size === sizeFilter);
-          }
-          setPets(filteredData);
-        }
-      } catch (err) {
-        console.error('Error fetching adoptable pets:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    // Add a slight debounce for search term
     const timer = setTimeout(() => {
       fetchPets();
     }, 300);
-
     return () => clearTimeout(timer);
   }, [searchTerm, activeType, genderFilter, sizeFilter]);
 
@@ -153,24 +154,36 @@ export default function Pets() {
           </div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-6">
-            {loading ? (
-              Array.from({ length: 6 }).map((_, i) => (
-                <div key={i}>
-                  <CardSkeleton />
-                </div>
-              ))
-            ) : pets.length === 0 ? (
-              <div className="col-span-full text-center py-20 text-gray-400 font-medium">
-                <i className="fas fa-search text-5xl mb-4 opacity-50 block"></i>
-                <p>No adoptable pets found matching your filters.</p>
+          {error ? (
+            <div className="flex flex-col items-center justify-center py-16 text-center bg-gray-50 rounded-3xl border border-gray-100 p-6">
+              <div className="w-14 h-14 bg-red-100 rounded-2xl flex items-center justify-center text-red-500 text-xl mb-4">
+                <i className="fas fa-exclamation-triangle"></i>
               </div>
-            ) : (
-              pets.map((pet, idx) => (
-                <PetCard key={pet._id} pet={pet} index={idx} />
-              ))
-            )}
-          </div>
+              <p className="text-gray-600 font-medium mb-4">{error}</p>
+              <button onClick={fetchPets} className="px-5 py-2.5 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl text-sm transition shadow-md">
+                <i className="fas fa-redo me-2"></i>Try Again
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-6">
+              {loading ? (
+                Array.from({ length: 6 }).map((_, i) => (
+                  <div key={i}>
+                    <CardSkeleton />
+                  </div>
+                ))
+              ) : pets.length === 0 ? (
+                <div className="col-span-full text-center py-20 text-gray-400 font-medium">
+                  <i className="fas fa-search text-5xl mb-4 opacity-50 block"></i>
+                  <p>No adoptable pets found matching your filters.</p>
+                </div>
+              ) : (
+                pets.map((pet, idx) => (
+                  <PetCard key={pet._id} pet={pet} index={idx} />
+                ))
+              )}
+            </div>
+          )}
         </div>
       </section>
     </div>

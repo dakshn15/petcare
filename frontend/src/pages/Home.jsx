@@ -6,12 +6,85 @@ import PetsSwiper from '../components/Home/PetsSwiper';
 import TestimonialSwiper from '../components/Home/TestimonialSwiper';
 import StarRating from '../components/UI/StarRating';
 import { useAuth } from '../hooks/useAuth';
+import { useToast } from '../hooks/useToast';
 import * as reviewApi from '../api/reviewApi';
+import * as contactApi from '../api/contactApi';
+
+const defaultPackages = [
+  {
+    name: 'Basic Package',
+    desc: 'Perfect for routine care',
+    price: 65,
+    icon: 'fas fa-plus',
+    features: [
+      'Bath & Organic Shampoo',
+      'Gentle Blow Dry',
+      'Nail Trimming',
+      'Ear Cleaning'
+    ],
+    popular: false,
+    value: 'basic'
+  },
+  {
+    name: 'Premium Package',
+    desc: 'Enhanced grooming experience',
+    price: 95,
+    icon: 'fas fa-dollar-sign',
+    features: [
+      'Everything in Basic',
+      'Full Haircut & Styling',
+      'Teeth Brushing',
+      'Paw Pad Treatment'
+    ],
+    popular: true,
+    value: 'premium'
+  },
+  {
+    name: 'Deluxe Package',
+    desc: 'Ultimate luxury experience',
+    price: 135,
+    icon: 'fas fa-star',
+    features: [
+      'Everything in Premium',
+      'Aromatherapy Treatment',
+      'Luxury Fur Conditioning',
+      'Complimentary Pet Toy'
+    ],
+    popular: false,
+    value: 'deluxe'
+  }
+];
 
 export default function Home() {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const addToast = useToast();
   const [selectedPackage, setSelectedPackage] = useState('premium'); // Default popular package
+  const [packages, setPackages] = useState(defaultPackages);
+
+  useEffect(() => {
+    const fetchPackages = async () => {
+      try {
+        const res = await contactApi.getSettings();
+        if (res?.success && res.data?.packages && res.data.packages.length > 0) {
+          const normalized = res.data.packages.map(p => ({
+            ...p,
+            value: p.value || p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+          }));
+          setPackages(normalized);
+          const popularPkg = normalized.find(p => p.popular);
+          if (popularPkg) {
+            setSelectedPackage(popularPkg.value);
+          } else if (normalized.length > 0) {
+            setSelectedPackage(normalized[0].value);
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching dynamic packages:', err);
+      }
+    };
+    fetchPackages();
+  }, []);
   
   // Review form states
   const [reviewName, setReviewName] = useState('');
@@ -64,7 +137,7 @@ export default function Home() {
         }, 4000);
       }
     } catch (err) {
-      alert(err.message || 'Failed to submit review');
+      addToast(err.message || 'Failed to submit review. Please try again.', 'error', 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -271,145 +344,54 @@ export default function Home() {
 
           {/* Packages Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-6 max-w-6xl mx-auto">
-            {/* Basic Package */}
-            <div
-              className={`package-card flex flex-col sm:h-full group bg-white rounded-2xl shadow-lg xl:p-8 lg:p-6 p-4 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden border-2 ${
-                selectedPackage === 'basic' ? 'border-primary' : 'border-gray-200'
-              }`}
-            >
-              <div className="flex-1">
-                <div className="absolute -top-10 -start-10 w-20 h-20 bg-primary/10 rounded-full"></div>
-                <div className="lg:w-20 lg:h-20 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <i className="fas fa-plus lg:text-3xl text-2xl text-primary"></i>
+            {packages.slice(0, 3).map((pkg) => {
+              const value = pkg.value || pkg.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+              const isSelected = selectedPackage === value;
+              return (
+                <div
+                  key={pkg._id || pkg.name}
+                  className={`package-card flex flex-col sm:h-full group bg-white rounded-2xl shadow-lg xl:p-8 lg:p-6 p-4 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden relative border-2 ${
+                    isSelected ? 'border-primary' : 'border-gray-200'
+                  }`}
+                >
+                  <div className="flex-1">
+                    {pkg.popular && (
+                      <div className="absolute top-3 start-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-md uppercase tracking-wider">
+                        Most Popular
+                      </div>
+                    )}
+                    {!pkg.popular && (
+                      <div className="absolute -top-10 -start-10 w-20 h-20 bg-primary/10 rounded-full"></div>
+                    )}
+                    <div className={`lg:w-20 lg:h-20 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 ${pkg.popular ? 'mt-4' : ''}`}>
+                      <i className={`${pkg.icon || 'fas fa-star'} lg:text-3xl text-2xl text-primary`}></i>
+                    </div>
+                    <h3 className="text-xl lg:text-2xl mb-2 font-bold font-quicksand text-dark">{pkg.name}</h3>
+                    <div className="text-sm text-gray-500 mb-4 font-medium">{pkg.desc}</div>
+                    <div className="text-3xl lg:text-4xl font-bold text-primary mb-5">${pkg.price}</div>
+
+                    <ul className="text-start space-y-3 lg:mb-8 mb-5 text-gray-600 font-medium">
+                      {(pkg.features || []).map((feature, fIdx) => (
+                        <li key={fIdx} className="flex items-center justify-center sm:justify-start">
+                          <i className="fas fa-check text-green-500 me-3"></i>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <button
+                    onClick={() => { handlePackageSelect(value); navigate(`/service-booking?service=package-${value}`); }}
+                    className={`w-full inline-flex items-center justify-center text-center px-5 py-3 border rounded-full font-semibold leading-none transition duration-300 cursor-pointer ${
+                      isSelected
+                        ? 'bg-primary text-white border-primary'
+                        : 'bg-primary/10 border-primary/10 text-primary hover:bg-primary hover:text-white'
+                    }`}
+                  >
+                    Choose {pkg.name.replace(' Package', '')}
+                  </button>
                 </div>
-                <h3 className="text-xl lg:text-2xl mb-2 font-bold font-quicksand text-dark">Basic Package</h3>
-                <div className="text-sm text-gray-500 mb-4 font-medium">Perfect for routine care</div>
-                <div className="text-3xl lg:text-4xl font-bold text-primary mb-5">$65</div>
-
-                <ul className="text-start space-y-3 lg:mb-8 mb-5 text-gray-600 font-medium">
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <i className="fas fa-check text-green-500 me-3"></i>
-                    Bath & Organic Shampoo
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <i className="fas fa-check text-green-500 me-3"></i>
-                    Gentle Blow Dry
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <i className="fas fa-check text-green-500 me-3"></i>
-                    Nail Trimming
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <i className="fas fa-check text-green-500 me-3"></i>
-                    Ear Cleaning
-                  </li>
-                </ul>
-              </div>
-              <button
-                onClick={() => { handlePackageSelect('basic'); navigate('/service-booking?service=package-basic'); }}
-                className={`w-full inline-flex items-center justify-center text-center px-5 py-3 border rounded-full font-semibold leading-none transition duration-300 cursor-pointer ${
-                  selectedPackage === 'basic'
-                    ? 'bg-primary text-white border-primary'
-                    : 'bg-primary/10 border-primary/10 text-primary hover:bg-primary hover:text-white'
-                }`}
-              >
-                Choose Basic
-              </button>
-            </div>
-
-            {/* Premium Package */}
-            <div
-              className={`package-card flex flex-col sm:h-full group bg-white rounded-2xl shadow-xl xl:p-8 lg:p-6 p-4 !pt-8 sm:mt-0 mt-4 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl relative z-[1] border-2 ${
-                selectedPackage === 'premium' ? 'border-primary' : 'border-gray-200'
-              }`}
-            >
-              <div className="flex-1">
-                <div className="absolute -top-4 start-1/2 transform -translate-x-1/2 bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                  Most Popular
-                </div>
-                <div className="lg:w-20 lg:h-20 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 mt-4 group-hover:scale-110 transition-transform duration-300">
-                  <i className="fas fa-dollar-sign lg:text-3xl text-2xl text-primary"></i>
-                </div>
-                <h3 className="text-xl lg:text-2xl mb-2 font-bold font-quicksand text-dark">Premium Package</h3>
-                <div className="text-sm text-gray-500 mb-4 font-medium">Enhanced grooming experience</div>
-                <div className="text-3xl lg:text-4xl font-bold text-primary mb-5">$95</div>
-
-                <ul className="text-start space-y-3 lg:mb-8 mb-5 text-gray-600 font-medium">
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <i className="fas fa-check text-green-500 me-3"></i>
-                    Everything in Basic
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <i className="fas fa-check text-green-500 me-3"></i>
-                    Full Haircut & Styling
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <i className="fas fa-check text-green-500 me-3"></i>
-                    Teeth Brushing
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <i className="fas fa-check text-green-500 me-3"></i>
-                    Paw Pad Treatment
-                  </li>
-                </ul>
-              </div>
-              <button
-                onClick={() => { handlePackageSelect('premium'); navigate('/service-booking?service=package-premium'); }}
-                className={`w-full inline-flex items-center justify-center text-center px-5 py-3 border rounded-full font-semibold leading-none transition duration-300 cursor-pointer ${
-                  selectedPackage === 'premium'
-                    ? 'bg-primary text-white border-primary'
-                    : 'bg-primary/10 border-primary/10 text-primary hover:bg-primary hover:text-white'
-                }`}
-              >
-                Choose Premium
-              </button>
-            </div>
-
-            {/* Deluxe Package */}
-            <div
-              className={`package-card flex flex-col sm:h-full group bg-white rounded-2xl shadow-lg xl:p-8 lg:p-6 p-4 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden border-2 ${
-                selectedPackage === 'deluxe' ? 'border-primary' : 'border-gray-200'
-              }`}
-            >
-              <div className="flex-1">
-                <div className="absolute -bottom-10 -end-10 w-20 h-20 bg-primary/10 rounded-full"></div>
-                <div className="lg:w-20 lg:h-20 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <i className="fas fa-star lg:text-3xl text-2xl text-primary"></i>
-                </div>
-                <h3 className="text-xl lg:text-2xl mb-2 font-bold font-quicksand text-dark">Deluxe Package</h3>
-                <div className="text-sm text-gray-500 mb-4 font-medium">Ultimate luxury experience</div>
-                <div className="text-3xl lg:text-4xl font-bold text-primary mb-5">$135</div>
-
-                <ul className="text-start space-y-3 lg:mb-8 mb-5 text-gray-600 font-medium">
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <i className="fas fa-check text-green-500 me-3"></i>
-                    Everything in Premium
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <i className="fas fa-check text-green-500 me-3"></i>
-                    Aromatherapy Treatment
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <i className="fas fa-check text-green-500 me-3"></i>
-                    Luxury Fur Conditioning
-                  </li>
-                  <li className="flex items-center justify-center sm:justify-start">
-                    <i className="fas fa-check text-green-500 me-3"></i>
-                    Complimentary Pet Toy
-                  </li>
-                </ul>
-              </div>
-              <button
-                onClick={() => { handlePackageSelect('deluxe'); navigate('/service-booking?service=package-deluxe'); }}
-                className={`w-full inline-flex items-center justify-center text-center px-5 py-3 border rounded-full font-semibold leading-none transition duration-300 cursor-pointer ${
-                  selectedPackage === 'deluxe'
-                    ? 'bg-primary text-white border-primary'
-                    : 'bg-primary/10 border-primary/10 text-primary hover:bg-primary hover:text-white'
-                }`}
-              >
-                Choose Deluxe
-              </button>
-            </div>
+              );
+            })}
           </div>
 
           <div className="text-center lg:mt-8 mt-6">

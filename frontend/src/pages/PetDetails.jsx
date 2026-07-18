@@ -10,37 +10,52 @@ export default function PetDetails() {
 
   const [pet, setPet] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const fetchPetDetails = React.useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await petApi.getPet(petId);
+      if (res?.success && res.data) {
+        setPet(res.data);
+      } else {
+        setError('Pet profile details not found.');
+      }
+    } catch (err) {
+      setError(err.message || 'Error fetching pet details');
+    } finally {
+      setLoading(false);
+    }
+  }, [petId]);
 
   useEffect(() => {
     if (!petId) {
       navigate('/pets');
       return;
     }
-
-    const fetchPetDetails = async () => {
-      try {
-        const res = await petApi.getPet(petId);
-        if (res?.success && res.data) {
-          setPet(res.data);
-        }
-      } catch (err) {
-        console.error('Error fetching pet details:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchPetDetails();
-  }, [petId, navigate]);
+  }, [petId, navigate, fetchPetDetails]);
 
   if (loading) {
     return <PageLoader message="Loading pet details…" />;
   }
 
-  if (!pet) {
+  if (error || !pet) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-500 gap-4">
-        <span>Pet profile not found</span>
-        <Link to="/pets" className="btn text-sm">Back to Available Pets</Link>
+      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-gray-50 text-gray-500 gap-4 px-4 text-center">
+        <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center text-red-500 text-2xl">
+          <i className="fas fa-exclamation-triangle"></i>
+        </div>
+        <h2 className="text-xl font-bold text-dark">{error || 'Pet profile not found'}</h2>
+        <div className="flex gap-4">
+          {error && (
+            <button onClick={fetchPetDetails} className="px-5 py-2.5 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl text-sm transition shadow-md">
+              <i className="fas fa-redo me-2"></i>Try Again
+            </button>
+          )}
+          <Link to="/pets" className="px-5 py-2.5 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 font-bold rounded-xl text-sm transition shadow-sm">Back to Available Pets</Link>
+        </div>
       </div>
     );
   }

@@ -7,31 +7,36 @@ export default function ServiceDetails() {
   const [searchParams] = useSearchParams();
   const serviceParam = searchParams.get('service') || 'full-bath';
   const [service, setService] = useState(null);
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedAddons, setSelectedAddons] = useState([]);
 
-  useEffect(() => {
-    const fetchServiceDetails = async () => {
-      try {
-        const res = await serviceApi.getService(serviceParam);
-        if (res?.success && res.data) {
-          const data = res.data;
-          // Map properties for compatibility with existing UI logic
-          const mapped = {
-            ...data,
-            desc: data.description,
-            basePrice: data.price,
-            included: (data.included || []).map((item, idx) => ({ ...item, id: idx + 1 })),
-            addons: (data.addons || []).map((addon) => ({ ...addon, id: addon.addonId || addon._id }))
-          };
-          setService(mapped);
-        }
-      } catch (err) {
-        console.error('Error fetching service details:', err);
-      } finally {
-        setLoading(false);
+  const fetchServiceDetails = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await serviceApi.getService(serviceParam);
+      if (res?.success && res.data) {
+        const data = res.data;
+        const mapped = {
+          ...data,
+          desc: data.description,
+          basePrice: data.price,
+          included: (data.included || []).map((item, idx) => ({ ...item, id: idx + 1 })),
+          addons: (data.addons || []).map((addon) => ({ ...addon, id: addon.addonId || addon._id }))
+        };
+        setService(mapped);
+      } else {
+        setError('Service details not found.');
       }
-    };
+    } catch (err) {
+      setError(err.message || 'Error fetching service details');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
     fetchServiceDetails();
   }, [serviceParam]);
 
@@ -58,11 +63,21 @@ export default function ServiceDetails() {
     return <PageLoader message="Loading service details…" />;
   }
 
-  if (!service) {
+  if (error || !service) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-500 gap-4">
-        <span>Service not found</span>
-        <Link to="/services" className="btn text-sm">View All Services</Link>
+      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-gray-50 text-gray-500 gap-4 px-4 text-center">
+        <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center text-red-500 text-2xl">
+          <i className="fas fa-exclamation-triangle"></i>
+        </div>
+        <h2 className="text-xl font-bold text-dark">{error || 'Service not found'}</h2>
+        <div className="flex gap-4">
+          {error && (
+            <button onClick={fetchServiceDetails} className="px-5 py-2.5 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl text-sm transition shadow-md">
+              <i className="fas fa-redo me-2"></i>Try Again
+            </button>
+          )}
+          <Link to="/services" className="px-5 py-2.5 bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 font-bold rounded-xl text-sm transition shadow-sm">View All Services</Link>
+        </div>
       </div>
     );
   }

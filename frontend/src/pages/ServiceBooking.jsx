@@ -12,6 +12,14 @@ export default function ServiceBooking() {
   const { user } = useAuth();
   const navigate = useNavigate();
 
+  const getTodayString = () => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+  };
+
   const [servicesList, setServicesList] = useState([
     { value: 'full-bath', label: 'Full Service Bath - $45' },
     { value: 'haircut', label: 'Professional Haircut - $35' },
@@ -299,10 +307,12 @@ export default function ServiceBooking() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5" noValidate>
                   {Object.keys(errors).length > 0 && (
-                    <div className="bg-red-50 text-red-700 p-4 rounded-xl border border-red-100 flex items-start gap-3 text-sm">
-                      <i className="fas fa-exclamation-circle text-lg mt-0.5"></i>
+                    <div className="bg-red-50 text-red-700 p-4 rounded-xl border border-red-100 flex items-start gap-3 text-sm animate-shake">
+                      <i className="fas fa-exclamation-circle text-lg"></i>
                       <div>
-                        <strong className="font-bold block mb-1">Please fix the validation errors:</strong>
+                        <strong className="font-bold block mb-1">
+                          {errors.submit ? 'Something went wrong:' : 'Please fix the following errors:'}
+                        </strong>
                         <ul className="list-disc ps-4 space-y-1">
                           {Object.values(errors).map((err, i) => (
                             <li key={i}>{err}</li>
@@ -467,6 +477,7 @@ export default function ServiceBooking() {
                         name="date"
                         value={formData.date}
                         onChange={handleInputChange}
+                        min={getTodayString()}
                         className={`form-input ${errors.date ? 'border-red-500 focus:border-red-500' : ''}`}
                       />
                       {errors.date && (

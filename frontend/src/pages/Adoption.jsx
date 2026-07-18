@@ -191,10 +191,12 @@ export default function Adoption() {
                   <h3 className="text-2xl mb-2 col-span-1 sm:col-span-2 font-bold font-quicksand text-dark">Adoption Application</h3>
 
                   {Object.keys(errors).length > 0 && (
-                    <div className="bg-red-50 text-red-700 p-4 rounded-xl border border-red-100 flex items-start gap-3 text-sm col-span-1 sm:col-span-2">
-                      <i className="fas fa-exclamation-circle text-lg mt-0.5"></i>
+                    <div className="bg-red-50 text-red-700 p-4 rounded-xl border border-red-100 flex items-start gap-3 text-sm col-span-1 sm:col-span-2 animate-shake">
+                      <i className="fas fa-exclamation-circle text-lg"></i>
                       <div>
-                        <strong className="font-bold block mb-1">Please fix the validation errors:</strong>
+                        <strong className="font-bold block mb-1">
+                          {errors.submit ? 'Something went wrong:' : 'Please fix the following errors:'}
+                        </strong>
                         <ul className="list-disc ps-4 space-y-1">
                           {Object.values(errors).map((err, i) => (
                             <li key={i}>{err}</li>
